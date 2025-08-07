@@ -17,6 +17,10 @@
 
             # Users
             ./users/sindre.nix
+
+            # Services
+            ./modules/services/desktop-managers/gnome.nix
+            ./modules/services/display-managers/gdm.nix
           ];
         };
       };
