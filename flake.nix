@@ -37,7 +37,6 @@
 
             # Programs
             ./modules/programs/adb.nix
-            ./modules/programs/fish.nix
             ./modules/programs/neovim.nix
           ];
         };

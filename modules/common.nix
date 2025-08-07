@@ -40,12 +40,10 @@
     environment.systemPackages = with pkgs; [
       bat
       btop
-      direnv
       discord
       eza
       fd
       firefox
-      fzf
       gh
       gnome-tweaks
       google-chrome
@@ -55,7 +53,6 @@
       lua-language-server
       nerd-fonts.jetbrains-mono
       nil # nix language server
-      nix-direnv
       nix-tree
       rust-analyzer
       slack
@@ -67,7 +64,6 @@
       wget
       wl-clipboard
       yaml-language-server
-      zoxide
       zulu
     ];
   };

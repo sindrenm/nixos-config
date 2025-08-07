@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   config = {
+    programs.fish.enable = true;
+
     users.users.sindre = {
       description = "Sindre";
       isNormalUser = true;
@@ -20,7 +22,6 @@
         chezmoi
         jetbrains.idea-ultimate
         jetbrains.rider
-        starship
         stremio
       ];
     };
