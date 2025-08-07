@@ -4,6 +4,7 @@
   home.stateVersion = "25.05"; # keep same as system version
 
   imports = [
+    ./modules/programs/bat.nix
     ./modules/programs/direnv.nix
     ./modules/programs/fish.nix
     ./modules/programs/fzf.nix
