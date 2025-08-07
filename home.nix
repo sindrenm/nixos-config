@@ -5,6 +5,7 @@
 
   imports = [
     ./modules/programs/bat.nix
+    ./modules/programs/btop.nix
     ./modules/programs/direnv.nix
     ./modules/programs/fish.nix
     ./modules/programs/fzf.nix
