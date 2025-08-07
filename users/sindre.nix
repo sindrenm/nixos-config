@@ -24,5 +24,9 @@
         stremio
       ];
     };
+
+    home-manager.users.sindre = {
+      imports = [ ../home.nix ];
+    };
   };
 }
