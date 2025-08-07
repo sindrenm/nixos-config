@@ -4,6 +4,7 @@
     users.users.sindre = {
       description = "Sindre";
       isNormalUser = true;
+      shell = pkgs.fish;
 
       extraGroups = [
         "kvm"

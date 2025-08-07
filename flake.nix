@@ -26,6 +26,7 @@
             ./modules/services/display-managers/gdm.nix
 
             # Programs
+            ./modules/programs/fish.nix
             ./modules/programs/neovim.nix
           ];
         };

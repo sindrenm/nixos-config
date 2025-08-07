@@ -37,7 +37,6 @@
       eza
       fd
       firefox
-      fish
       fzf
       gh
       git
