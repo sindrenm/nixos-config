@@ -7,6 +7,7 @@
       shell = pkgs.fish;
 
       extraGroups = [
+        "adbusers"
         "kvm"
         "networkmanager"
         "wheel"
