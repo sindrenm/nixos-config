@@ -9,6 +9,7 @@
     ./modules/programs/fzf.nix
     ./modules/programs/git.nix
     ./modules/programs/starship.nix
+    ./modules/programs/wezterm.nix
     ./modules/programs/zoxide.nix
   ];
 }

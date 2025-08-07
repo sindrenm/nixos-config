@@ -1,0 +1,7 @@
+{
+  "runtime.version": "LuaJIT",
+  "diagnostics.globals": [
+    "wezterm" // injected by Home Manager
+  ],
+  "workspace.checkThirdParty": false
+}

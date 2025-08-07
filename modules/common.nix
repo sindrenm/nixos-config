@@ -60,7 +60,6 @@
       typst
       vlc
       vscode-langservers-extracted
-      wezterm
       wget
       wl-clipboard
       yaml-language-server
