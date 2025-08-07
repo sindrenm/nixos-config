@@ -35,9 +35,8 @@
             ./modules/services/desktop-managers/gnome.nix
             ./modules/services/display-managers/gdm.nix
 
-            # Programs
+            # System Programs
             ./modules/programs/adb.nix
-            ./modules/programs/neovim.nix
           ];
         };
       };

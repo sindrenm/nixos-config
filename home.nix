@@ -8,6 +8,7 @@
     ./modules/programs/fish.nix
     ./modules/programs/fzf.nix
     ./modules/programs/git.nix
+    ./modules/programs/neovim.nix
     ./modules/programs/starship.nix
     ./modules/programs/wezterm.nix
     ./modules/programs/zoxide.nix

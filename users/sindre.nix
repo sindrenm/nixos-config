@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   config = {
     programs.fish.enable = true;
@@ -26,8 +26,12 @@
       ];
     };
 
-    home-manager.users.sindre = {
-      imports = [ ../home.nix ];
+    home-manager = {
+      extraSpecialArgs = { inherit inputs; };
+
+      users.sindre = {
+        imports = [ ../home.nix ];
+      };
     };
   };
 }
