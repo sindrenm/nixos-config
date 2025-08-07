@@ -39,7 +39,6 @@
 
     environment.systemPackages = with pkgs; [
       discord
-      eza
       fd
       firefox
       gh
