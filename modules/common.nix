@@ -11,6 +11,12 @@
       auto-optimise-store = true;
     };
 
+    nix.gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 14d";
+    };
+
     networking.networkmanager.enable = true;
 
     time.timeZone = "Europe/Oslo";
