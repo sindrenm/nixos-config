@@ -39,7 +39,6 @@
       firefox
       fzf
       gh
-      git
       gnome-tweaks
       google-chrome
       jujutsu

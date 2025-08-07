@@ -27,6 +27,7 @@
 
             # Programs
             ./modules/programs/fish.nix
+            ./modules/programs/git.nix
             ./modules/programs/neovim.nix
           ];
         };
