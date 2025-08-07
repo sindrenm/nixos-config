@@ -58,11 +58,7 @@
       nil # nix language server
       nix-direnv
       nix-tree
-      nodenv
-      pyenv
-      rbenv
       rust-analyzer
-      rustup
       slack
       taplo
       typst
