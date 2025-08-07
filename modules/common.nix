@@ -40,7 +40,6 @@
     environment.systemPackages = with pkgs; [
       discord
       firefox
-      gh
       gnome-tweaks
       google-chrome
       jujutsu

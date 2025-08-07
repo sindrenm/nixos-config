@@ -11,6 +11,7 @@
     ./modules/programs/fd.nix
     ./modules/programs/fish.nix
     ./modules/programs/fzf.nix
+    ./modules/programs/gh.nix
     ./modules/programs/git.nix
     ./modules/programs/neovim.nix
     ./modules/programs/starship.nix
