@@ -8,6 +8,7 @@
     ./modules/programs/btop.nix
     ./modules/programs/direnv.nix
     ./modules/programs/eza.nix
+    ./modules/programs/fd.nix
     ./modules/programs/fish.nix
     ./modules/programs/fzf.nix
     ./modules/programs/git.nix

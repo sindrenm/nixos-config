@@ -39,7 +39,6 @@
 
     environment.systemPackages = with pkgs; [
       discord
-      fd
       firefox
       gh
       gnome-tweaks
