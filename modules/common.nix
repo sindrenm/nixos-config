@@ -40,7 +40,6 @@
     environment.systemPackages = with pkgs; [
       bat
       btop
-      difftastic
       direnv
       discord
       eza

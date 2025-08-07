@@ -1,30 +1,53 @@
 let
-  # See git.private.tmpl.nix
-  private = import ./git.private.nix;
+  # Expected to provide the following:
+  # - emailAddress
+  # - signingKeyPath
+  private = import ./git/git.private.nix;
 in
 {
   programs.git = {
     enable = true;
 
-    config = {
+    userName = "Sindre Moen";
+    userEmail = private.emailAddress;
+
+    signing = {
+      key = private.signingKeyPath;
+      format = "ssh";
+      signByDefault = true;
+    };
+
+    difftastic = {
+      enable = true;
+    };
+
+    ignores = [
+      ".envrc"
+    ];
+
+    aliases = {
+      bicep = "bisect";
+      co = "checkout";
+      cb = "checkout -b";
+      ci = "commit -v";
+      cp = "cherry-pick";
+      st = "status";
+      br = "branch -vv";
+      df = "diff";
+      lg = "log --graph --pretty=format:'%C(red)%h%Creset %C(green)%ad%Creset | %s%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --date=short";
+      since = "!f() { git lg $1..HEAD; }; f";
+      last = "!f() { git lg --max-count $1; }; f";
+      pr = "pull --rebase --ff-only";
+      dfc = "diff --cached";
+      rob = "!f() { git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done }; f";
+      tags = "tag --list --sort=-creatordate";
+    };
+
+    extraConfig = {
       core = {
         pager = "less -RRSX";
         editor = "nvim";
       };
-
-      user = {
-        name = "Sindre Moen";
-        email = private.emailAddress;
-        signingKey = private.signingKeyPath;
-      };
-
-      diff.external = "difft";
-
-      commit.gpgsign = true;
-
-      tag.gpgsign = true;
-
-      gpg.format = "ssh";
 
       init.defaultBranch = "main";
 
@@ -47,24 +70,6 @@ in
       };
 
       github.user = "sindrenm";
-
-      alias = {
-        bicep = "bisect";
-        co = "checkout";
-        cb = "checkout -b";
-        ci = "commit -v";
-        cp = "cherry-pick";
-        st = "status";
-        br = "branch -vv";
-        df = "diff";
-        lg = "log --graph --pretty=format:'%C(red)%h%Creset %C(green)%ad%Creset | %s%C(yellow)%d%Creset %C(bold blue)<%an>%Creset' --date=short";
-        since = "!f() { git lg $1..HEAD; }; f";
-        last = "!f() { git lg --max-count $1; }; f";
-        pr = "pull --rebase --ff-only";
-        dfc = "diff --cached";
-        rob = "!f() { git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done }; f";
-        tags = "tag --list --sort=-creatordate";
-      };
     };
   };
 }
