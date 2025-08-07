@@ -42,7 +42,6 @@
       firefox
       gnome-tweaks
       google-chrome
-      jujutsu
       kotlin
       lshw
       lua-language-server

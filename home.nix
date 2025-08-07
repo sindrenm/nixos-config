@@ -13,6 +13,7 @@
     ./modules/programs/fzf.nix
     ./modules/programs/gh.nix
     ./modules/programs/git.nix
+    ./modules/programs/jujutsu.nix
     ./modules/programs/neovim.nix
     ./modules/programs/starship.nix
     ./modules/programs/wezterm.nix
