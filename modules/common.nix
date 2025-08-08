@@ -37,6 +37,17 @@
       android_sdk.accept_license = true;
     };
 
+    fonts = {
+      enableDefaultPackages = true;
+
+      packages = with pkgs; [
+        nerd-fonts.jetbrains-mono
+        noto-fonts-color-emoji
+        roboto
+        roboto-serif
+      ];
+    };
+
     environment.systemPackages = with pkgs; [
       discord
       firefox
@@ -45,7 +56,6 @@
       kotlin
       lshw
       lua-language-server
-      nerd-fonts.jetbrains-mono
       nil # nix language server
       nix-tree
       rust-analyzer
