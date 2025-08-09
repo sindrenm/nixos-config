@@ -20,6 +20,7 @@
     ./home/programs/neovim.nix
     ./home/programs/ripgrep.nix
     ./home/programs/starship.nix
+    ./home/programs/waybar.nix
     ./home/programs/wezterm.nix
     ./home/programs/zoxide.nix
   ];
