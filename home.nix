@@ -22,6 +22,7 @@
     ./home/programs/starship.nix
     ./home/programs/wezterm.nix
     ./home/programs/zoxide.nix
+    ./home/programs/waybar.nix
   ];
 
   age.secrets = {
