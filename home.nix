@@ -23,6 +23,7 @@
     ./home/programs/waybar.nix
     ./home/programs/wezterm.nix
     ./home/programs/zoxide.nix
+    ./home/services/mako.nix
   ];
 
   age.secrets = {
