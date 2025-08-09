@@ -6,6 +6,11 @@
     agenix.url = "github:ryantm/agenix";
     stylix.url = "github:danth/stylix";
 
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +28,7 @@
 
           modules = [
             home-manager.nixosModules.home-manager
+            inputs.niri-flake.nixosModules.niri
             inputs.stylix.nixosModules.stylix
 
             # Hosts
@@ -52,6 +58,7 @@
 
           modules = [
             home-manager.nixosModules.home-manager
+            inputs.niri-flake.nixosModules.niri
             inputs.stylix.nixosModules.stylix
 
             # Hosts

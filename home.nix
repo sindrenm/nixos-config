@@ -19,6 +19,7 @@
     ./home/programs/jujutsu.nix
     ./home/programs/mpv.nix
     ./home/programs/neovim.nix
+    ./home/programs/niri.nix
     ./home/programs/ripgrep.nix
     ./home/programs/starship.nix
     ./home/programs/swaylock.nix
