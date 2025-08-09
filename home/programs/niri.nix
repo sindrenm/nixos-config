@@ -32,15 +32,14 @@
         natural-scroll = false;
       };
 
-      #Follow mouse focus when it results in scrolling at most 40% of the screen.
-      focus-follows-mouse = {
-        enable = true;
-        max-scroll-amount = "40%";
-      };
-
-      warp-mouse-to-focus = {
-        enable = true;
-      };
+      # Do not change focus on mouse hover. This gets incredibly annoying when
+      # you want to click on something in a window that is only partially
+      # visible. You move your mouse to the location of the thing you wish to
+      # click, the window gets focused, causing the screen to scroll to ensure
+      # the entire window is visible, and the thing you wanted to click gets
+      # moved with the window.
+      focus-follows-mouse.enable = false;
+      warp-mouse-to-focus.enable = false;
     };
 
     outputs = {
