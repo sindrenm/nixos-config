@@ -12,6 +12,7 @@
     ./home/programs/eza.nix
     ./home/programs/fd.nix
     ./home/programs/fish.nix
+    ./home/programs/fuzzel.nix
     ./home/programs/fzf.nix
     ./home/programs/gh.nix
     ./home/programs/git.nix
