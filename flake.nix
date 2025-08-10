@@ -15,6 +15,8 @@
   outputs =
     { nixpkgs, home-manager, ... }@inputs:
     {
+      security.pam.services.swaylock = { };
+
       nixosConfigurations = {
         sindrenm-home = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
