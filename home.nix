@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
 
 {
   home.stateVersion = "25.05"; # keep same as system version
@@ -24,4 +24,16 @@
     ./modules/programs/wezterm.nix
     ./modules/programs/zoxide.nix
   ];
+
+  age.secrets = {
+    git = {
+      file = ./secrets/git.toml;
+      path = "${config.xdg.configHome}/git/secret.toml";
+    };
+
+    jujutsu = {
+      file = ./secrets/jujutsu.toml;
+      path = "${config.xdg.configHome}/jj/conf.d/secret.toml";
+    };
+  };
 }

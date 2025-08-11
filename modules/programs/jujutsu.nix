@@ -1,15 +1,9 @@
-let
-  # Expected to provide the following:
-  # - emailAddress
-  private = import ./jujutsu/jujutsu.private.nix;
-in
 {
   programs.jujutsu = {
     enable = true;
 
     settings = {
       user = {
-        email = private.emailAddress;
         name = "Sindre Moen";
       };
 

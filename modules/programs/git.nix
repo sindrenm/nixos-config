@@ -1,14 +1,14 @@
-let
-  # Expected to provide the following:
-  # - emailAddress
-  private = import ./git/git.private.nix;
-in
+{ config, ... }:
+
 {
   programs.git = {
     enable = true;
 
+    includes = [
+      { path = config.age.secrets.git.path; }
+    ];
+
     userName = "Sindre Moen";
-    userEmail = private.emailAddress;
 
     signing = {
       key = "/home/sindre/.ssh/id_ed25519.pub";
