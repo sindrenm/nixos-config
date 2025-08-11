@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   nix.settings = {
@@ -48,6 +48,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    inputs.agenix.packages."${system}".default
+
     discord
     firefox
     gnome-tweaks

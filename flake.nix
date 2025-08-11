@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    agenix.url = "github:ryantm/agenix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -12,7 +13,12 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }@inputs:
+    {
+      nixpkgs,
+      agenix,
+      home-manager,
+      ...
+    }@inputs:
     {
       nixosConfigurations = {
         home = nixpkgs.lib.nixosSystem {

@@ -1,9 +1,11 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   home.stateVersion = "25.05"; # keep same as system version
 
   imports = [
+    inputs.agenix.homeManagerModules.default
+
     ./modules/dconf.nix
     ./modules/fontconfig.nix
     ./modules/programs/bat.nix
