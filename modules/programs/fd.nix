@@ -1,5 +1,5 @@
 {
-  config.programs.fd = {
+  programs.fd = {
     enable = true;
   };
 }

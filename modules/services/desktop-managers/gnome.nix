@@ -1,5 +1,5 @@
 {
-  config.services.desktopManager.gnome = {
+  services.desktopManager.gnome = {
     enable = true;
   };
 }

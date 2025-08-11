@@ -4,7 +4,7 @@ let
   private = import ./jujutsu/jujutsu.private.nix;
 in
 {
-  config.programs.jujutsu = {
+  programs.jujutsu = {
     enable = true;
 
     settings = {

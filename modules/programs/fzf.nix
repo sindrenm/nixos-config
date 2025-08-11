@@ -1,5 +1,5 @@
 {
-  config.programs.fzf = {
+  programs.fzf = {
     enable = true;
   };
 }

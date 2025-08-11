@@ -1,37 +1,35 @@
 { pkgs, inputs, ... }:
 {
-  config = {
-    programs.fish.enable = true;
+  programs.fish.enable = true;
 
-    users.users.sindre = {
-      description = "Sindre";
-      isNormalUser = true;
-      shell = pkgs.fish;
+  users.users.sindre = {
+    description = "Sindre";
+    isNormalUser = true;
+    shell = pkgs.fish;
 
-      extraGroups = [
-        "adbusers"
-        "kvm"
-        "networkmanager"
-        "wheel"
-      ];
+    extraGroups = [
+      "adbusers"
+      "kvm"
+      "networkmanager"
+      "wheel"
+    ];
 
-      packages = with pkgs; [
-        androidStudioPackages.canary
-        azure-cli
-        bitwarden-desktop
-        chezmoi
-        jetbrains.idea-ultimate
-        jetbrains.rider
-        stremio
-      ];
-    };
+    packages = with pkgs; [
+      androidStudioPackages.canary
+      azure-cli
+      bitwarden-desktop
+      chezmoi
+      jetbrains.idea-ultimate
+      jetbrains.rider
+      stremio
+    ];
+  };
 
-    home-manager = {
-      extraSpecialArgs = { inherit inputs; };
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
 
-      users.sindre = {
-        imports = [ ../home.nix ];
-      };
+    users.sindre = {
+      imports = [ ../home.nix ];
     };
   };
 }

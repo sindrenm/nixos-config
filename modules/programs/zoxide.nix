@@ -1,5 +1,5 @@
 {
-  config.programs.zoxide = {
+  programs.zoxide = {
     enable = true;
   };
 }

@@ -1,5 +1,5 @@
 {
-  config.programs.bat = {
+  programs.bat = {
     enable = true;
   };
 }

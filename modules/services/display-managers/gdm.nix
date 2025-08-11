@@ -1,5 +1,5 @@
 {
-  config.services.displayManager.gdm = {
+  services.displayManager.gdm = {
     enable = true;
   };
 }

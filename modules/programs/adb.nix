@@ -1,5 +1,5 @@
 {
-  config.programs.adb = {
+  programs.adb = {
     enable = true;
   };
 }

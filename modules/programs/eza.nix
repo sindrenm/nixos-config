@@ -1,5 +1,5 @@
 {
-  config.programs.eza = {
+  programs.eza = {
     enable = true;
   };
 }
