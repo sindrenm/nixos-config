@@ -1,7 +1,6 @@
 let
   # Expected to provide the following:
   # - emailAddress
-  # - signingKeyPath
   private = import ./jujutsu/jujutsu.private.nix;
 in
 {
@@ -28,7 +27,7 @@ in
       signing = {
         backend = "ssh";
         behavior = "own";
-        key = private.signingKeyPath;
+        key = "/home/sindre/.ssh/id_ed25519.pub";
       };
     };
   };

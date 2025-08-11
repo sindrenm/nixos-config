@@ -1,7 +1,6 @@
 let
   # Expected to provide the following:
   # - emailAddress
-  # - signingKeyPath
   private = import ./git/git.private.nix;
 in
 {
@@ -12,7 +11,7 @@ in
     userEmail = private.emailAddress;
 
     signing = {
-      key = private.signingKeyPath;
+      key = "/home/sindre/.ssh/id_ed25519.pub";
       format = "ssh";
       signByDefault = true;
     };
