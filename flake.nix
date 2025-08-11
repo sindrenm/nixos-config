@@ -45,6 +45,34 @@
             ./modules/programs/adb.nix
           ];
         };
+
+        work = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+
+          modules = [
+            home-manager.nixosModules.home-manager
+
+            # Hosts
+            ./hosts/work/configuration.nix
+
+            # Modules
+            ./modules/common.nix
+            ./modules/nvidia.nix
+
+            # Hardware
+            ./modules/hardware/tuxedo.nix
+
+            # Users
+            ./users/sindre.nix
+
+            # Services
+            ./modules/services/desktop-managers/gnome.nix
+            ./modules/services/display-managers/gdm.nix
+
+            # System Programs
+            ./modules/programs/adb.nix
+          ];
+        };
       };
     };
 }
