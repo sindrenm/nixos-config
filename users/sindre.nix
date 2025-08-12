@@ -22,6 +22,7 @@
       jetbrains.idea-ultimate
       jetbrains.rider
       kdePackages.breeze
+      nixfmt
       stremio
     ];
   };

@@ -58,8 +58,9 @@
     kotlin
     lshw
     lua-language-server
-    nil # nix language server
+    nh
     nix-tree
+    nixd
     pulseaudio
     rust-analyzer
     slack
