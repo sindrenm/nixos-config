@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     agenix.url = "github:ryantm/agenix";
+    stylix.url = "github:danth/stylix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -20,6 +21,7 @@
 
           modules = [
             home-manager.nixosModules.home-manager
+            inputs.stylix.nixosModules.stylix
 
             # Hosts
             ./hosts/sindrenm-home/configuration.nix
@@ -45,6 +47,7 @@
 
           modules = [
             home-manager.nixosModules.home-manager
+            inputs.stylix.nixosModules.stylix
 
             # Hosts
             ./hosts/sindrenm-work/configuration.nix
