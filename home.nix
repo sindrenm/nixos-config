@@ -6,8 +6,6 @@
   imports = [
     inputs.agenix.homeManagerModules.default
 
-    ./modules/dconf.nix
-    ./modules/fontconfig.nix
     ./modules/programs/bat.nix
     ./modules/programs/btop.nix
     ./modules/programs/direnv.nix
