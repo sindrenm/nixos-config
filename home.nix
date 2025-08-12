@@ -18,6 +18,7 @@
     ./modules/programs/gh.nix
     ./modules/programs/git.nix
     ./modules/programs/jujutsu.nix
+    ./modules/programs/mpv.nix
     ./modules/programs/neovim.nix
     ./modules/programs/ripgrep.nix
     ./modules/programs/starship.nix
