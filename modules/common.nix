@@ -60,6 +60,7 @@
     lua-language-server
     nil # nix language server
     nix-tree
+    pulseaudio
     rust-analyzer
     slack
     taplo
