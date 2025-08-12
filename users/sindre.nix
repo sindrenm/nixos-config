@@ -21,6 +21,7 @@
       chezmoi
       jetbrains.idea-ultimate
       jetbrains.rider
+      kdePackages.breeze
       stremio
     ];
   };
