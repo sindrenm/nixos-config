@@ -5,7 +5,7 @@
     enable = true;
 
     includes = [
-      { path = config.age.secrets.git.path; }
+      { inherit (config.age.secrets.git) path; }
     ];
 
     userName = "Sindre Moen";
