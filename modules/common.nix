@@ -69,6 +69,7 @@
     vscode-langservers-extracted
     wget
     wl-clipboard
+    xwayland-satellite
     yaml-language-server
     zulu
   ];
