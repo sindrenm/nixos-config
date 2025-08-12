@@ -39,6 +39,9 @@
 
             # System Programs
             ./modules/programs/adb.nix
+
+            # Themes
+            ./modules/themes/current.nix
           ];
         };
 
@@ -68,6 +71,9 @@
 
             # System Programs
             ./modules/programs/adb.nix
+
+            # Themes
+            ./modules/themes/current.nix
           ];
         };
       };

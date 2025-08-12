@@ -41,10 +41,6 @@
 
     packages = with pkgs; [
       font-awesome
-      nerd-fonts.jetbrains-mono
-      noto-fonts-color-emoji
-      roboto
-      roboto-serif
     ];
   };
 
