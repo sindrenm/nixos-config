@@ -21,14 +21,14 @@
     }@inputs:
     {
       nixosConfigurations = {
-        home = nixpkgs.lib.nixosSystem {
+        sindrenm-home = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
 
           modules = [
             home-manager.nixosModules.home-manager
 
             # Hosts
-            ./hosts/home/configuration.nix
+            ./hosts/sindrenm-home/configuration.nix
 
             # Modules
             ./modules/common.nix
@@ -46,14 +46,14 @@
           ];
         };
 
-        work = nixpkgs.lib.nixosSystem {
+        sindrenm-work = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
 
           modules = [
             home-manager.nixosModules.home-manager
 
             # Hosts
-            ./hosts/work/configuration.nix
+            ./hosts/sindrenm-work/configuration.nix
 
             # Modules
             ./modules/common.nix
