@@ -23,6 +23,7 @@
       jetbrains.rider
       kdePackages.breeze
       nixfmt
+      statix
       stremio
     ];
   };
