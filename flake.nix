@@ -68,6 +68,7 @@
             # Services
             ./modules/services/desktop-managers/gnome.nix
             ./modules/services/display-managers/gdm.nix
+            ./modules/services/logind.nix
 
             # System Programs
             ./modules/programs/adb.nix
