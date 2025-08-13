@@ -52,6 +52,7 @@
     gnome-tweaks
     google-chrome
     kotlin
+    libnotify
     lshw
     lua-language-server
     nh
