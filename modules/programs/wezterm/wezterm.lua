@@ -1,5 +1,4 @@
 return {
-  color_scheme = "JetBrains Darcula",
   font = wezterm.font_with_fallback {
     "JetBrains Mono",
     "Font Awesome 6 Free Solid",
@@ -12,19 +11,6 @@ return {
 
   initial_cols = 150,
   initial_rows = 40,
-
-  window_decorations = "NONE",
-
-  window_frame = {
-    border_left_width = "2px",
-    border_right_width = "2px",
-    border_bottom_height = "2px",
-    border_top_height = "2px",
-    border_left_color = "white",
-    border_right_color = "white",
-    border_bottom_color = "white",
-    border_top_color = "white",
-  },
 
   window_padding = {
     left = "12px",
