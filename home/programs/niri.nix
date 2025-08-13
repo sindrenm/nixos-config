@@ -9,6 +9,7 @@
 
     spawn-at-startup = [
       { command = [ "waybar" ]; }
+      { command = [ "xwayland-satellite" ]; }
     ];
 
     cursor = {
