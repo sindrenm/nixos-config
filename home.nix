@@ -6,22 +6,22 @@
   imports = [
     inputs.agenix.homeManagerModules.default
 
-    ./modules/programs/bat.nix
-    ./modules/programs/btop.nix
-    ./modules/programs/direnv.nix
-    ./modules/programs/eza.nix
-    ./modules/programs/fd.nix
-    ./modules/programs/fish.nix
-    ./modules/programs/fzf.nix
-    ./modules/programs/gh.nix
-    ./modules/programs/git.nix
-    ./modules/programs/jujutsu.nix
-    ./modules/programs/mpv.nix
-    ./modules/programs/neovim.nix
-    ./modules/programs/ripgrep.nix
-    ./modules/programs/starship.nix
-    ./modules/programs/wezterm.nix
-    ./modules/programs/zoxide.nix
+    ./home/programs/bat.nix
+    ./home/programs/btop.nix
+    ./home/programs/direnv.nix
+    ./home/programs/eza.nix
+    ./home/programs/fd.nix
+    ./home/programs/fish.nix
+    ./home/programs/fzf.nix
+    ./home/programs/gh.nix
+    ./home/programs/git.nix
+    ./home/programs/jujutsu.nix
+    ./home/programs/mpv.nix
+    ./home/programs/neovim.nix
+    ./home/programs/ripgrep.nix
+    ./home/programs/starship.nix
+    ./home/programs/wezterm.nix
+    ./home/programs/zoxide.nix
   ];
 
   age.secrets = {
