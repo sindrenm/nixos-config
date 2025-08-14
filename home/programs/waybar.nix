@@ -2,24 +2,30 @@
   programs.waybar = {
     enable = true;
 
+    style = builtins.readFile ./waybar/style.css;
+
     settings.main = {
+      reload-style-on-change = true;
+
       layer = "bottom";
-      position = "top";
+      position = "bottom";
+
+      margin-bottom = 16;
 
       modules-left = [
         "niri/workspaces"
         "niri/window"
       ];
 
+      modules-center = [
+        "clock"
+      ];
+
       modules-right = [
         "tray"
         "pulseaudio"
         "network"
-        "memory"
-        "cpu"
-        "temperature"
         "battery"
-        "clock"
       ];
 
       # Modules
@@ -56,30 +62,6 @@
         tooltip = false;
       };
 
-      cpu = {
-        interval = 5;
-        tooltip = false;
-        format = "CPU {usage}%";
-        format-alt = "CPU {load}";
-
-        states = {
-          warning = 70;
-          critical = 90;
-        };
-      };
-
-      memory = {
-        interval = 5;
-        format = "MEM {used:0.1f}G/{total:0.1f}G";
-
-        states = {
-          warning = 70;
-          critical = 90;
-        };
-
-        tooltip = false;
-      };
-
       network = {
         interval = 5;
         format-wifi = "NET WiFi {essid} ({signalStrength}%)";
@@ -109,22 +91,6 @@
 
         scroll-step = 1;
         on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
-        tooltip = false;
-      };
-
-      temperature = {
-        critical-threshold = 90;
-        interval = 5;
-        format = "TMP {temperatureC} °C";
-
-        format-icons = [
-          ""
-          ""
-          ""
-          ""
-          ""
-        ];
-
         tooltip = false;
       };
 
