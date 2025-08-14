@@ -1,0 +1,44 @@
+window#waybar {
+  background-color: transparent;
+}
+
+.module {
+  color: @base05;
+  margin-left: 8px;
+  margin-right: 8px;
+  border-radius: 12px;
+}
+
+#battery, #window, #clock, #tray, #pulseaudio, #network {
+  background-color: @base00;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+#window.empty #window {
+  background: transparent;
+}
+
+#pulseaudio.muted {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+#workspaces > button {
+  background-color: @base00;
+  border-color: @base03;
+  border-width: 2px;
+}
+
+#workspaces > button + button {
+  margin-left: 8px;
+}
+
+#workspaces > button.active {
+  background-color: @base00;
+  border-color: @base0D;
+}
+
+#workspaces > button.urgent {
+  color: @base09;
+}

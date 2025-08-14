@@ -2,24 +2,32 @@
   programs.waybar = {
     enable = true;
 
+    style = builtins.readFile ./waybar/style.css;
+
     settings.main = {
+      reload-style-on-change = true;
+
       layer = "bottom";
       position = "top";
+
+      margin-top = 16;
+      margin-left = 8;
+      margin-right = 8;
 
       modules-left = [
         "niri/workspaces"
         "niri/window"
       ];
 
+      modules-center = [
+        "clock"
+      ];
+
       modules-right = [
         "tray"
-        "pulseaudio"
         "network"
-        "memory"
-        "cpu"
-        "temperature"
         "battery"
-        "clock"
+        "pulseaudio"
       ];
 
       # Modules
@@ -37,15 +45,6 @@
         format-charging = "BAT {capacity}% ({time})";
         format-charging-full = "BAT {capacity}%";
         format-full = "BAT {capacity}%";
-        format-alt = "BAT {power}W";
-
-        format-icons = [
-          ""
-          ""
-          ""
-          ""
-          ""
-        ];
 
         tooltip = false;
       };
@@ -53,31 +52,7 @@
       clock = {
         interval = 1;
         format = "{:%A, %B %d %Y, %H:%M:%S}";
-        tooltip = false;
-      };
-
-      cpu = {
-        interval = 5;
-        tooltip = false;
-        format = "CPU {usage}%";
-        format-alt = "CPU {load}";
-
-        states = {
-          warning = 70;
-          critical = 90;
-        };
-      };
-
-      memory = {
-        interval = 5;
-        format = "MEM {used:0.1f}G/{total:0.1f}G";
-
-        states = {
-          warning = 70;
-          critical = 90;
-        };
-
-        tooltip = false;
+        tooltip = true;
       };
 
       network = {
@@ -85,7 +60,6 @@
         format-wifi = "NET WiFi {essid} ({signalStrength}%)";
         format-ethernet = "NET Wired";
         format-disconnected = "NET No connection";
-        format-alt = "IP {ipaddr}/{cidr}";
         tooltip = false;
       };
 
@@ -94,43 +68,14 @@
         format-bluetooth = "VOL (Bluetooth) {volume}%";
         format-muted = "VOL MUTE";
 
-        format-icons = {
-          headphone = "";
-          hands-free = "";
-          headset = "";
-          phone = "";
-          portable = "";
-          car = "";
-          default = [
-            ""
-            ""
-          ];
-        };
-
         scroll-step = 1;
         on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
         tooltip = false;
       };
 
-      temperature = {
-        critical-threshold = 90;
-        interval = 5;
-        format = "TMP {temperatureC} °C";
-
-        format-icons = [
-          ""
-          ""
-          ""
-          ""
-          ""
-        ];
-
-        tooltip = false;
-      };
-
       tray = {
         icon-size = 24;
-        spacing = 16;
+        spacing = 24;
       };
     };
   };

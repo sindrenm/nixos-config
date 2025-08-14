@@ -27,6 +27,7 @@
     ./home/programs/wezterm.nix
     ./home/programs/zoxide.nix
     ./home/services/mako.nix
+    ./home/stylix.nix
   ];
 
   age.secrets = {
