@@ -1,4 +1,5 @@
 vim.lsp.enable({
+  "cssls",
   "jsonls",
   "lua_ls",
   "nixd",
