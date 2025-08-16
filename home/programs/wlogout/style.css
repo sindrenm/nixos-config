@@ -1,0 +1,52 @@
+* {
+  font-family: "Roboto";
+  background-image: none;
+  transition: 20ms;
+  box-shadow: none;
+}
+
+window {
+  font-size: 16pt;
+}
+
+button {
+  background-color: var(--color-base00);
+  border-radius: 80px;
+  border-width: 2px;
+  border-color: var(--color-base03);
+  color: var(--color-base05);
+}
+
+button:focus,
+button:hover {
+  background-color: var(--color-base02);
+  border-color: var(--color-base0D);
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* #lock { */
+/*   background-image: image(url("icons/lock.png")); */
+/* } */
+/**/
+/* #logout { */
+/*   background-image: image(url("icons/logout.png")); */
+/* } */
+/**/
+/* #suspend { */
+/*   background-image: image(url("icons/suspend.png")); */
+/* } */
+/**/
+/* #hibernate { */
+/*   background-image: image(url("icons/hibernate.png")); */
+/* } */
+/**/
+/* #reboot { */
+/*   background-image: image(url("icons/reboot.png")); */
+/* } */
+/**/
+/* #shutdown { */
+/*   background-image: image(url("icons/shutdown.png")); */
+/* } */

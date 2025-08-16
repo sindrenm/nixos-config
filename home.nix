@@ -31,6 +31,7 @@
     ./home/programs/tmux.nix
     ./home/programs/waybar.nix
     ./home/programs/wezterm.nix
+    ./home/programs/wlogout.nix
     ./home/programs/zoxide.nix
     ./home/services/mako.nix
     ./home/stylix.nix
