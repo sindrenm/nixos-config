@@ -7,7 +7,7 @@
     settings.main = {
       reload-style-on-change = true;
 
-      layer = "bottom";
+      layer = "top";
       position = "top";
 
       margin-top = 16;
