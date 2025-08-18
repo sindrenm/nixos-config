@@ -36,6 +36,10 @@
     ./home/stylix.nix
   ];
 
+  home.sessionVariables = {
+    FOO_BAR = "foo-bar?";
+  };
+
   age.secrets = {
     git = {
       file = ./secrets/git.toml;
