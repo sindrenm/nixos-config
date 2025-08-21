@@ -47,7 +47,10 @@
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages."${system}".default
 
+    azure-cli
     discord
+    dotnet-runtime
+    dotnet-sdk
     firefox
     gnome-tweaks
     google-chrome
