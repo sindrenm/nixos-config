@@ -119,7 +119,7 @@
 
       "Mod+Shift+Slash".action = show-hotkey-overlay;
 
-      "Mod+Return".action.spawn = "wezterm";
+      "Mod+Return".action.spawn = "ghostty";
       "Mod+Space".action.spawn = "fuzzel";
       "Mod+Alt+L".action.spawn = "swaylock";
 
