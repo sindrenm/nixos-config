@@ -28,6 +28,7 @@
     ./home/programs/ripgrep.nix
     ./home/programs/starship.nix
     ./home/programs/swaylock.nix
+    ./home/programs/tmux.nix
     ./home/programs/waybar.nix
     ./home/programs/wezterm.nix
     ./home/programs/zoxide.nix
