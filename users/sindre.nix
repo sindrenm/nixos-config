@@ -17,6 +17,7 @@
     packages = with pkgs; [
       androidStudioPackages.canary
       azure-cli
+      bitwarden-cli
       bitwarden-desktop
       chezmoi
       jetbrains.idea-ultimate
