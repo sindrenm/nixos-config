@@ -5,7 +5,7 @@
   users.users.sindre = {
     description = "Sindre";
     isNormalUser = true;
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
 
     extraGroups = [
       "adbusers"
