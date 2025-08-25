@@ -9,6 +9,7 @@
     ./home/programs/atuin.nix
     ./home/programs/bat.nix
     ./home/programs/btop.nix
+    ./home/programs/carapace.nix
     ./home/programs/direnv.nix
     ./home/programs/eza.nix
     ./home/programs/fd.nix
