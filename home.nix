@@ -15,6 +15,7 @@
     ./home/programs/fuzzel.nix
     ./home/programs/fzf.nix
     ./home/programs/gh.nix
+    ./home/programs/ghostty.nix
     ./home/programs/git.nix
     ./home/programs/jujutsu.nix
     ./home/programs/mpv.nix
