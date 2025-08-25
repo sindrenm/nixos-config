@@ -6,6 +6,7 @@
   imports = [
     inputs.agenix.homeManagerModules.default
 
+    ./home/programs/atuin.nix
     ./home/programs/bat.nix
     ./home/programs/btop.nix
     ./home/programs/direnv.nix
