@@ -1,4 +1,8 @@
 {
+  environmentVariables = {
+    EDITOR = "nvim";
+  };
+
   shellAliases = {
     l = "eza";
     ll = "eza --long --git --icons";

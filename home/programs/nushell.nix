@@ -5,6 +5,7 @@ in
   programs.nushell = {
     enable = true;
 
+    inherit (common) environmentVariables;
     inherit (common) shellAliases;
 
     settings = {
