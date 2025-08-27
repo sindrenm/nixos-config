@@ -3,6 +3,8 @@
 {
   home.stateVersion = "25.05"; # keep same as system version
 
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     inputs.agenix.homeManagerModules.default
 
@@ -24,6 +26,7 @@
     ./home/programs/neovim.nix
     ./home/programs/niri.nix
     ./home/programs/nushell.nix
+    ./home/programs/obsidian.nix
     ./home/programs/qutebrowser.nix
     ./home/programs/ripgrep.nix
     ./home/programs/starship.nix
