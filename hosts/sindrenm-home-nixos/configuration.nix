@@ -73,6 +73,19 @@
   ];
 
   # ---------------------------------------------------------------------
+  # Fonts (system-wide, incl. GDM login screen)
+  # ---------------------------------------------------------------------
+
+  fonts.packages = with pkgs; [
+    cantarell-fonts
+    jetbrains-mono
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    noto-fonts-color-emoji
+  ];
+
+  # ---------------------------------------------------------------------
   # Services matching things that were separate packages/units on CachyOS
   # ---------------------------------------------------------------------
 
@@ -96,14 +109,8 @@
   environment.shells = [ pkgs.nushell ];
 
   # ---------------------------------------------------------------------
-  # Programs
+  # Programs (system-wide only — personal tooling lives in home.nix)
   # ---------------------------------------------------------------------
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    package = pkgs.neovim; # use nightly overlay
-  };
 
   programs.nh = {
     enable = true;
@@ -114,89 +121,18 @@
   };
 
   # ---------------------------------------------------------------------
-  # Packages
+  # System level packages. User packages live in home.nix
   # ---------------------------------------------------------------------
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    # --- Browsers ---
-    firefox
-
-    # --- Version control / dev tooling ---
-    difftastic
-    direnv
-    git
-    jujutsu
-    stow
-
-    # --- Editors / IDE mgmt ---
-    jetbrains-toolbox
-    kotlin-language-server
-
-    # --- Shell / terminal / CLI tools ---
-    atuin
-    bat
-    carapace
-    eza
-    fd
-    kitty
-    nushell
-    ripgrep
-    starship
-    tokei
-    yazi
-    zoxide
-
-    # --- Fonts ---
-    cantarell-fonts
-    jetbrains-mono
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    noto-fonts-color-emoji
-
-    # --- Hyprland ecosystem ---
-    hypridle
-    hyprlock
-    hyprpaper
-    hyprpicker
-    hyprshot
-    wl-clipboard
-    wlogout
-
-    # --- Media / creative ---
-    deluge
-    discord
-    gimp
-    obs-studio
-    signal-desktop
-    slack
-    stremio-linux-shell
-    vlc
-    zathura
-    zathuraPkgs.zathura_pdf_mupdf
-
-    # --- System / hardware utilities ---
     efibootmgr
-    gpu-viewer
     hwinfo
-    mesa-demos
+    inetutils
+    openssh
     rsync
     unzip
     wget
-
-    # --- Networking / security ---
-    gnome-tweaks
-    inetutils
-    openssh
-    speedtest-cli
-
-    # --- Password / secrets ---
-    bitwarden-cli
-    bitwarden-desktop
-
-    # --- Android / mobile ---
-    scrcpy
   ];
 
   system.stateVersion = "26.05";
