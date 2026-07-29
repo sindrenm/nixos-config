@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     atuin
     bat
+    bottom
     carapace
     eza
     fd
