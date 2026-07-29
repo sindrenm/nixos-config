@@ -8,7 +8,9 @@
 
   home.packages = with pkgs; [
     difftastic
+    gcc
     jetbrains-toolbox
     stow
+    tree-sitter
   ];
 }
