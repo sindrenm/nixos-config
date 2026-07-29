@@ -10,6 +10,7 @@
     difftastic
     gcc
     jetbrains-toolbox
+    nixfmt
     stow
     tree-sitter
   ];
