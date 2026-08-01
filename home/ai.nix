@@ -5,6 +5,7 @@
     antigravity-cli
     antigravity-ide
     claude-code
+    claude-desktop-fhs
     codex
   ];
 }
