@@ -42,7 +42,7 @@
                 claude-desktop.overlays.default
                 neovim-nightly-overlay.overlays.default
 
-                (import ./overlays/glaze-7.9.1-pin.nix)
+                (import ./overlays/hyprland-glaze-patch.nix)
               ];
             }
 
