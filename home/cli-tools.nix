@@ -5,7 +5,6 @@
     atuin
     bat
     carapace
-    eza
     fd
     ripgrep
     speedtest-cli
