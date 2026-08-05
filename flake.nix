@@ -4,6 +4,16 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    catppuccin-palette = {
+      url = "github:catppuccin/palette";
+      flake = false;
+    };
+
     claude-desktop = {
       url = "github:aaddrick/claude-desktop-debian";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +33,8 @@
   outputs =
     {
       self,
+      catppuccin,
+      catppuccin-palette,
       claude-desktop,
       home-manager,
       neovim-nightly-overlay,
@@ -51,6 +63,9 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit catppuccin catppuccin-palette;
+              };
               home-manager.users.sindre = import ./home.nix;
             }
           ];
