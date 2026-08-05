@@ -10,7 +10,6 @@
     speedtest-cli
     starship
     tokei
-    yazi
     zoxide
   ];
 }
