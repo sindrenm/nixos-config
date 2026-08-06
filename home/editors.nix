@@ -35,7 +35,9 @@
 
         startupPlugins = {
           general = with pkgs.vimPlugins; [
+            catppuccin-nvim
             lazydev-nvim
+            mini-icons
             nvim-lspconfig
           ];
         };
