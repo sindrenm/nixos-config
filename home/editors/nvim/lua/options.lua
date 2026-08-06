@@ -1,0 +1,12 @@
+vim.o.autoread = true
+vim.o.cmdheight = 0
+vim.o.expandtab = true
+vim.o.laststatus = 3
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.signcolumn = "yes"
+vim.o.softtabstop = 2
+vim.o.tabstop = 2
+vim.o.termguicolors = true
+vim.o.undofile = true
+vim.o.winborder = "rounded"
