@@ -1,5 +1,6 @@
 require("file-managers")
 require("keymaps")
 require("lsp")
+require("motions")
 require("options")
 require("ui")

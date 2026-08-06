@@ -1,3 +1,4 @@
+local jump = require("jump")
 local whichKey = require("which-key")
 
 vim.g.mapleader = " "
@@ -22,4 +23,8 @@ end
 whichKey.add({
   { "<leader>d", mode = "n", vim.diagnostic.open_float, desc = "Open diagnostic float" },
   { "<leader>D", mode = "n", diagnosticOverview,        desc = "Open diagnostic overview" },
+})
+
+whichKey.add({
+  { "s", mode = { "n", "x", "o" }, jump.start, desc = "Jump to match" },
 })
