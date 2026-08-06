@@ -28,6 +28,8 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
   };
 
   outputs =
@@ -38,6 +40,7 @@
       claude-desktop,
       home-manager,
       neovim-nightly-overlay,
+      nixCats,
       nixpkgs,
       ...
     }:
@@ -64,7 +67,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                inherit catppuccin catppuccin-palette;
+                inherit catppuccin catppuccin-palette nixCats;
               };
               home-manager.users.sindre = import ./home.nix;
             }
