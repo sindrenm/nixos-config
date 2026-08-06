@@ -23,6 +23,24 @@
 
     luaPath = ./editors/nvim;
 
+    categoryDefinitions.replace =
+      { pkgs, ... }:
+      {
+        lspsAndRuntimeDeps = {
+          lua = with pkgs; [
+            lua-language-server
+            stylua
+          ];
+        };
+
+        startupPlugins = {
+          general = with pkgs.vimPlugins; [
+            lazydev-nvim
+            nvim-lspconfig
+          ];
+        };
+      };
+
     packageDefinitions.replace = {
       v =
         { ... }:
@@ -42,6 +60,11 @@
 
             hosts.python3.enable = false;
             hosts.node.enable = false;
+          };
+
+          categories = {
+            general = true;
+            lua = true;
           };
         };
     };
