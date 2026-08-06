@@ -39,6 +39,7 @@
             lazydev-nvim
             mini-icons
             nvim-lspconfig
+            which-key-nvim
           ];
         };
       };
