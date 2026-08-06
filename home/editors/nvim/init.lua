@@ -1,3 +1,4 @@
+require("file-managers")
 require("keymaps")
 require("lsp")
 require("options")

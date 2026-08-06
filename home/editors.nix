@@ -39,6 +39,8 @@
             lazydev-nvim
             mini-icons
             nvim-lspconfig
+            oil-lsp-diagnostics-nvim
+            oil-nvim
             which-key-nvim
           ];
         };
