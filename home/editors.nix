@@ -38,6 +38,7 @@
             blink-cmp
             blink-cmp-conventional-commits
             catppuccin-nvim
+            jj-nvim
             lazydev-nvim
             mini-icons
             mini-surround
@@ -45,6 +46,7 @@
             nvim-lspconfig
             oil-lsp-diagnostics-nvim
             oil-nvim
+            vim-jjdescription
             which-key-nvim
           ];
         };
