@@ -1,3 +1,4 @@
+require("completion")
 require("editing")
 require("file-managers")
 require("keymaps")

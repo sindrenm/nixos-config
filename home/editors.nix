@@ -35,6 +35,8 @@
 
         startupPlugins = {
           general = with pkgs.vimPlugins; [
+            blink-cmp
+            blink-cmp-conventional-commits
             catppuccin-nvim
             lazydev-nvim
             mini-icons
