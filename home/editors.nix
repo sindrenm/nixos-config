@@ -38,6 +38,7 @@
             catppuccin-nvim
             lazydev-nvim
             mini-icons
+            mini-surround
             nvim-jump
             nvim-lspconfig
             oil-lsp-diagnostics-nvim
