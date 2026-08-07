@@ -56,8 +56,6 @@
               nixpkgs.overlays = [
                 claude-desktop.overlays.default
                 neovim-nightly-overlay.overlays.default
-
-                (import ./overlays/hyprland-glaze-patch.nix)
               ];
             }
 
