@@ -1,6 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    carapace
+  ];
+
   programs.starship = {
     enable = true;
 

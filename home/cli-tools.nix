@@ -13,7 +13,6 @@
     carapace
     ripgrep
     speedtest-cli
-    starship
     tokei
     zoxide
   ];
