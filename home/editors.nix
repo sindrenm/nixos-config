@@ -36,6 +36,10 @@
             lua-language-server
             stylua
           ];
+
+          nix = with pkgs; [
+            nixd
+          ];
         };
 
         startupPlugins = {
@@ -82,6 +86,7 @@
           categories = {
             general = true;
             lua = true;
+            nix = true;
           };
         };
     };
