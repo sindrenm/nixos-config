@@ -64,4 +64,6 @@ in
       };
     };
   };
+
+  services.tailscale-systray.enable = true;
 }
