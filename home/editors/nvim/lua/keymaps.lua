@@ -1,6 +1,11 @@
 local jump = require("jump")
 local whichKey = require("which-key")
 
+local artio = {
+  core = require("artio"),
+  builtins = require("artio.builtins"),
+}
+
 local jj = {
   cmd = require("jj.cmd"),
   annotate = require("jj.annotate"),
@@ -33,6 +38,34 @@ whichKey.add({
 
 whichKey.add({
   { "s", mode = { "n", "x", "o" }, jump.start, desc = "Jump to match" },
+})
+
+-- artio's files picker shells out to its own `findprg`. Point it at the list
+-- `:find` uses instead (set in search.lua) so both agree on what a project file
+-- is. artio sorts the result itself, so ask findfunc for the unfiltered list.
+local findFiles = function()
+  -- files() fills in fn/on_close/items itself and merges these over them, so
+  -- the fields its Props class marks required are not ours to supply.
+  ---@diagnostic disable-next-line: missing-fields
+  return artio.builtins.files({
+    get_items = function()
+      return vim.o.findfunc("", true)
+    end,
+  })
+end
+
+whichKey.add({
+  { "<leader>f",  mode = "n", group = "Find" },
+  { "<leader>ff", mode = "n", findFiles,                  desc = "Find file" },
+  { "<leader>fg", mode = "n", artio.builtins.grep,        desc = "Grep project" },
+  { "<leader>f/", mode = "n", artio.builtins.buffergrep,  desc = "Grep current buffer" },
+  { "<leader>fb", mode = "n", artio.builtins.buffers,     desc = "Find buffer" },
+  { "<leader>fo", mode = "n", artio.builtins.oldfiles,    desc = "Find recent file" },
+  { "<leader>fd", mode = "n", artio.builtins.diagnostics, desc = "Find diagnostic" },
+  { "<leader>fh", mode = "n", artio.builtins.helptags,    desc = "Find help tag" },
+  { "<leader>fq", mode = "n", artio.builtins.quickfix,    desc = "Find in quickfix" },
+  { "<leader>fr", mode = "n", artio.core.resume,          desc = "Resume last picker" },
+  { "<leader>fp", mode = "n", artio.builtins.builtins,    desc = "Find picker" },
 })
 
 whichKey.add({

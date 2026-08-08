@@ -27,6 +27,11 @@
       { pkgs, ... }:
       {
         lspsAndRuntimeDeps = {
+          general = with pkgs; [
+            fd
+            ripgrep
+          ];
+
           lua = with pkgs; [
             lua-language-server
             stylua
@@ -35,6 +40,7 @@
 
         startupPlugins = {
           general = with pkgs.vimPlugins; [
+            artio-nvim
             blink-cmp
             blink-cmp-conventional-commits
             catppuccin-nvim
