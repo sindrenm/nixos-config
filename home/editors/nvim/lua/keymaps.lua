@@ -12,8 +12,6 @@ local jj = {
   diff = require("jj.diff"),
 };
 
-vim.g.mapleader = " "
-
 whichKey.setup({ preset = "modern" });
 
 whichKey.add({

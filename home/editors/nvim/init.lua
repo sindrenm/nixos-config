@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 require("completion")
 require("editing")
 require("file-managers")
