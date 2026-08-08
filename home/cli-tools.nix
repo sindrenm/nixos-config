@@ -10,7 +10,6 @@
   home.packages = with pkgs; [
     atuin
     bat
-    carapace
     ripgrep
     speedtest-cli
     tokei
