@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    hyprlock
     hyprpolkitagent
   ];
 
@@ -22,4 +21,6 @@
       };
     };
   };
+
+  programs.hyprlock.enable = true;
 }
