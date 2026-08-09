@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   programs.cava.enable = true;
 }
