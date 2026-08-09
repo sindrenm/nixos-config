@@ -56,6 +56,32 @@
               nixpkgs.overlays = [
                 claude-desktop.overlays.default
                 neovim-nightly-overlay.overlays.default
+
+                # hyprexpo isn't in nixpkgs. Built directly against this
+                # generation's own hyprland package for a guaranteed ABI
+                # match, rather than via the plugin's own flake.nix, which
+                # pins an unrelated (and older) Hyprland version.
+                (final: prev: {
+                  hyprexpo = prev.hyprlandPlugins.mkHyprlandPlugin {
+                    pluginName = "hyprexpo";
+                    # Pinned to the exact Hyprland version tag: plugin ABI is
+                    # version-sensitive, and this fork tags per Hyprland release.
+                    version = "0.56.1+3";
+                    src = prev.fetchFromGitHub {
+                      owner = "sandwichfarm";
+                      repo = "hyprexpo";
+                      rev = "40352e2663deded7c6536b2fda1ed18a97234a80";
+                      hash = "sha256-lI52XGlHMAXhn8ztpRkzefFy5ZnTIsQgAlTEVYTXseA=";
+                    };
+                    inherit (prev.hyprland) nativeBuildInputs;
+                    meta = with prev.lib; {
+                      homepage = "https://github.com/sandwichfarm/hyprexpo";
+                      description = "An enhanced Hyprland workspaces overview plugin";
+                      license = licenses.bsd3;
+                      platforms = platforms.linux;
+                    };
+                  };
+                })
               ];
             }
 
