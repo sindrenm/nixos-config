@@ -13,6 +13,5 @@
     ripgrep
     speedtest-cli
     tokei
-    zoxide
   ];
 }
