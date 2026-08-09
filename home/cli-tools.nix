@@ -4,7 +4,10 @@
   programs.fd = {
     enable = true;
     hidden = true;
-    ignores = [ ".git/" ".jj/" ];
+    ignores = [
+      ".git/"
+      ".jj/"
+    ];
   };
 
   home.packages = with pkgs; [
