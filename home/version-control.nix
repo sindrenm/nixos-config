@@ -1,14 +1,9 @@
 { config, pkgs, ... }:
 
-
 let
   signingKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
 in
 {
-  home.packages = with pkgs; [
-    jujutsu
-  ];
-
   programs.git = {
     enable = true;
 
@@ -84,6 +79,37 @@ in
     settings = {
       git_protocol = "ssh";
       aliases.co = "pr checkout";
+    };
+  };
+
+  programs.jujutsu = {
+    enable = true;
+
+    settings = {
+      user = {
+        name = "Sindre Moen";
+        email = "sindrenm@gmail.com";
+      };
+
+      ui = {
+        "default-command" = "log";
+        editor = "v";
+        pager = ":builtin";
+      };
+
+      signing = {
+        key = signingKey;
+        backend = "ssh";
+        behavior = "own";
+      };
+
+      aliases.retrunk = [
+        "rebase"
+        "-d"
+        "trunk()"
+      ];
+
+      git."private-commits" = "description(glob:'private! *')";
     };
   };
 }
