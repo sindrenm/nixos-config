@@ -8,7 +8,6 @@
   };
 
   home.packages = with pkgs; [
-    atuin
     bat
     ripgrep
     speedtest-cli

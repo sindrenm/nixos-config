@@ -25,5 +25,20 @@
     };
   };
 
+  programs.nushell = {
+    enable = true;
+
+    settings = {
+      buffer_editor = "v";
+      edit_mode = "vi";
+      show_banner = false;
+    };
+
+    environmentVariables = {
+      EDITOR = "v";
+      MANPAGER = "nvim +Man!";
+    };
+  };
+
   programs.zoxide.enable = true;
 }
