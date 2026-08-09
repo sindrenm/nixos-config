@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  programs.bat.enable = true;
+
   programs.fd = {
     enable = true;
     hidden = true;
@@ -11,7 +13,6 @@
   };
 
   home.packages = with pkgs; [
-    bat
     ripgrep
     speedtest-cli
     tokei
