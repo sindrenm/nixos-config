@@ -23,4 +23,6 @@
   };
 
   programs.hyprlock.enable = true;
+
+  catppuccin.hyprlock.flavor = "mocha";
 }
