@@ -2,6 +2,17 @@
 
 let
   signingKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+
+  jjWithoutNushellComp = pkgs.symlinkJoin {
+    name = "jujutsu-without-nushell-vendor-completion";
+    paths = [ pkgs.jujutsu ];
+    postBuild = ''
+      rm "$out/share/nushell/vendor/autoload/jj.nu"
+    '';
+  };
+
+  useCarapaceCompletions = config.programs.carapace.enable;
+  jjPkg = if useCarapaceCompletions then jjWithoutNushellComp else pkgs.jujutsu;
 in
 {
   programs.git = {
@@ -84,6 +95,7 @@ in
 
   programs.jujutsu = {
     enable = true;
+    package = jjPkg;
 
     settings = {
       user = {
