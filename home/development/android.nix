@@ -5,5 +5,6 @@
     android-cli
     android-tools
     androidStudioPackages.canary
+    androidStudioPackages.stable
   ];
 }
