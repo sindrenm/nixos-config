@@ -1,3 +1,9 @@
+{ config, lib, ... }:
+
+let
+  nushellConfigDir = config.programs.nushell.configDir;
+  nushellLocalEnv = "${nushellConfigDir}/local.nu";
+in
 {
   programs.carapace = {
     enable = true;
@@ -38,7 +44,19 @@
       EDITOR = "v";
       MANPAGER = "nvim +Man!";
     };
+
+    # Secrets and other machine-specific env vars that shouldn't be committed to this repo go in `local.nu` under the
+    # nushell config dir, which is never managed or overwritten by home-manager (only guaranteed to exist, see the
+    # activation script below).
+    extraConfig = ''
+      source-env ${nushellLocalEnv}
+    '';
   };
 
   programs.zoxide.enable = true;
+
+  home.activation.ensureNushellLocalEnv = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run mkdir -p ${lib.escapeShellArg nushellConfigDir}
+    [ -e ${lib.escapeShellArg nushellLocalEnv} ] || run touch ${lib.escapeShellArg nushellLocalEnv}
+  '';
 }
