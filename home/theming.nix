@@ -34,6 +34,7 @@ in
     description = "Named hex colors for the active Catppuccin flavor, \
       for programs without an official catppuccin/nix integration.";
     default = lib.mapAttrs (_: color: color.hex) colors;
+    readOnly = true;
   };
 
   config = {
