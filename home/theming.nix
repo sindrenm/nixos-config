@@ -8,12 +8,26 @@
 }:
 
 let
+  catppuccinFlavor = if config.theming.polarity == "light" then "latte" else "mocha";
+  gtkThemeName = if config.theming.polarity == "light" then "adw-gtk3" else "adw-gtk3-dark";
+  colorScheme = if config.theming.polarity == "light" then "prefer-light" else "prefer-dark";
+
   jsonPalette = builtins.readFile "${catppuccin-palette}/palette.json";
   allPalettes = builtins.fromJSON jsonPalette;
-  colors = allPalettes.latte.colors;
+  colors = allPalettes.${catppuccinFlavor}.colors;
 in
 {
   imports = [ catppuccin.homeModules.catppuccin ];
+
+  options.theming.polarity = lib.mkOption {
+    type = lib.types.enum [
+      "light"
+      "dark"
+    ];
+    default = "light";
+    description = "Overall desktop polarity. Drives the Catppuccin flavor, \
+      GTK theme variant, and the GNOME/libadwaita color-scheme preference.";
+  };
 
   options.theming.palette = lib.mkOption {
     type = lib.types.attrsOf lib.types.str;
@@ -26,14 +40,14 @@ in
     catppuccin = {
       enable = true;
       autoEnable = true;
-      flavor = "latte";
+      flavor = catppuccinFlavor;
       accent = "blue";
     };
 
     gtk = {
       enable = true;
       theme = {
-        name = "adw-gtk3"; # light (default) adwaita
+        name = gtkThemeName;
         package = pkgs.adw-gtk3;
       };
     };
@@ -41,7 +55,7 @@ in
     dconf = {
       enable = true;
       settings."org/gnome/desktop/interface" = {
-        color-scheme = "prefer-light";
+        color-scheme = colorScheme;
         gtk-theme = config.gtk.theme.name;
         icon-theme = config.gtk.iconTheme.name;
       };
