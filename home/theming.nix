@@ -1,7 +1,9 @@
 {
   catppuccin,
   catppuccin-palette,
+  config,
   lib,
+  pkgs,
   ...
 }:
 
@@ -20,10 +22,29 @@ in
     default = lib.mapAttrs (_: color: color.hex) colors;
   };
 
-  config.catppuccin = {
-    enable = true;
-    autoEnable = true;
-    flavor = "latte";
-    accent = "blue";
+  config = {
+    catppuccin = {
+      enable = true;
+      autoEnable = true;
+      flavor = "latte";
+      accent = "blue";
+    };
+
+    gtk = {
+      enable = true;
+      theme = {
+        name = "adw-gtk3"; # light (default) adwaita
+        package = pkgs.adw-gtk3;
+      };
+    };
+
+    dconf = {
+      enable = true;
+      settings."org/gnome/desktop/interface" = {
+        color-scheme = "prefer-light";
+        gtk-theme = config.gtk.theme.name;
+        icon-theme = config.gtk.iconTheme.name;
+      };
+    };
   };
 }
