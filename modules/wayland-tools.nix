@@ -1,0 +1,58 @@
+{
+  home-manager.users.sindre = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      awww
+      wl-clipboard
+    ];
+
+    programs.wleave = {
+      enable = true;
+
+      settings = {
+        margin = 200;
+        buttons-per-row = "3";
+        delay-command-ms = 100;
+        close-on-lost-focus = true;
+        show-keybinds = true;
+        buttons = [
+          {
+            label = "lock";
+            action = "loginctl lock-session";
+            text = "Lock";
+            keybind = "l";
+          }
+          {
+            label = "hibernate";
+            action = "systemctl hibernate";
+            text = "Hibernate";
+            keybind = "h";
+          }
+          {
+            label = "logout";
+            action = "session-logout";
+            text = "Log Out ";
+            keybind = "e";
+          }
+          {
+            label = "reboot";
+            action = "systemctl reboot";
+            text = "Reboot";
+            keybind = "r";
+          }
+          {
+            label = "suspend";
+            action = "systemctl suspend";
+            text = "Suspend";
+            keybind = "u";
+          }
+          {
+            label = "shutdown";
+            action = "systemctl poweroff";
+            text = "Shut Down";
+            keybind = "s";
+          }
+        ];
+      };
+    };
+  };
+}

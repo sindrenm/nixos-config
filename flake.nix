@@ -69,7 +69,6 @@
               home-manager.extraSpecialArgs = {
                 inherit catppuccin catppuccin-palette nixCats;
               };
-              home-manager.users.sindre = import ./home.nix;
             }
           ];
         };
