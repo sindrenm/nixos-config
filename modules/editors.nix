@@ -33,6 +33,11 @@
                 ripgrep
               ];
 
+              kotlin = with pkgs; [
+                kotlin-lsp
+                ktfmt
+              ];
+
               lua = with pkgs; [
                 lua-language-server
                 stylua
@@ -86,6 +91,7 @@
 
               categories = {
                 general = true;
+                kotlin = true;
                 lua = true;
                 nix = true;
               };
