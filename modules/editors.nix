@@ -54,6 +54,7 @@
                 blink-cmp
                 blink-cmp-conventional-commits
                 catppuccin-nvim
+                fidget-nvim
                 jj-nvim
                 lazydev-nvim
                 mini-icons

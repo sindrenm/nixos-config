@@ -1,4 +1,13 @@
-require("lazydev").setup()
+local fidget = require("fidget")
+local lazydev = require("lazydev")
+
+fidget.setup({
+  notification = {
+    window = { align = "top" },
+  },
+})
+
+lazydev.setup()
 
 vim.lsp.config("lua_ls", {
   settings = {
