@@ -24,6 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,6 +44,7 @@
       catppuccin-palette,
       claude-desktop,
       home-manager,
+      mangowm,
       neovim-nightly-overlay,
       nixCats,
       nixpkgs,
@@ -62,13 +68,17 @@
               ];
             }
 
+            mangowm.nixosModules.mango
+
             home-manager.nixosModules.home-manager
 
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                inherit catppuccin catppuccin-palette nixCats;
+                inherit catppuccin catppuccin-palette;
+                inherit mangowm;
+                inherit nixCats;
               };
             }
           ];
