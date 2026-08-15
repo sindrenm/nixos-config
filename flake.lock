@@ -277,6 +277,26 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786802796,
+        "narHash": "sha256-vK0vVd+pvgJ5v9nATCR70pqI6cqwJItr/w5OcWUWBCY=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "rev": "cf0bf8d33cd553d9655c699f6949850176f3662a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
@@ -286,7 +306,8 @@
         "mangowm": "mangowm",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixCats": "nixCats",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "noctalia": "noctalia"
       }
     },
     "scenefx": {

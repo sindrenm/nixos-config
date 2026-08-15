@@ -35,6 +35,11 @@
     };
 
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -47,6 +52,7 @@
       mangowm,
       neovim-nightly-overlay,
       nixCats,
+      noctalia,
       nixpkgs,
       ...
     }:
@@ -79,6 +85,7 @@
                 inherit catppuccin catppuccin-palette;
                 inherit mangowm;
                 inherit nixCats;
+                inherit noctalia;
               };
             }
           ];
