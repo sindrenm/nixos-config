@@ -32,6 +32,11 @@
       wayland.windowManager.mango = {
         enable = true;
 
+        # Setting this (even to a no-op) makes the mango module emit the exec-once/dbus-activation/mango-session.target
+        # chain, which is what brings up graphical-session.target and starts systemd user services (e.g. noctalia) that
+        # are WantedBy it.
+        autostart_sh = ":";
+
         settings = {
           cursor_theme = "catppuccin-${cursorFlavor}-blue-cursors";
           cursor_size = 24;
