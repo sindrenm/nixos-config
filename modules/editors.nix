@@ -63,6 +63,7 @@
                 nvim-lspconfig
                 oil-lsp-diagnostics-nvim
                 oil-nvim
+                rainbow-delimiters-nvim
                 vim-jjdescription
                 which-key-nvim
               ];
