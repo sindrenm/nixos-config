@@ -74,3 +74,28 @@ whichKey.add({
   { "<leader>jA", mode = "n", jj.annotate.file,     desc = "Annoate whole file" },
   { "<leader>jd", mode = "n", jj.diff.diff_current, desc = "Diff current against revision" },
 })
+
+local function sort_text_object(reverse)
+  vim.o.operatorfunc = function()
+    local first = vim.fn.line("'[")
+    local last = vim.fn.line("']")
+
+    -- `sort` or `sort!` from `first` to `last` based on `reverse`
+    vim.cmd(("%d, %dsort%s"):format(first, last, reverse and "!" or ""))
+  end
+
+  return "g@"
+end
+
+local function sort_ascending()
+  return sort_text_object(false)
+end
+
+local function sort_descending()
+  return sort_text_object(true)
+end
+
+whichKey.add({
+  { "gs", mode = "n", expr = true, sort_ascending,  desc = "Sort text object" },
+  { "gS", mode = "n", expr = true, sort_descending, desc = "Sort text object (desc)" },
+})
