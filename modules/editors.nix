@@ -26,6 +26,18 @@
 
         categoryDefinitions.replace =
           { pkgs, ... }:
+          let
+            touchup-nvim = pkgs.vimUtils.buildVimPlugin {
+              pname = "touchup.nvim";
+              version = "unstable-2026-08-13";
+              src = pkgs.fetchFromGitHub {
+                owner = "noisesfromspace";
+                repo = "touchup.nvim";
+                rev = "efc7df43515aeb29c84ef088f0197bde83e9ce12";
+                hash = "sha256-T9x6zLsPmpZn8yTwzN4+TXgWb2RuZP2OIX8UNV8W0sU=";
+              };
+            };
+          in
           {
             lspsAndRuntimeDeps = {
               general = with pkgs; [
@@ -41,6 +53,10 @@
               lua = with pkgs; [
                 lua-language-server
                 stylua
+              ];
+
+              markdown = with pkgs; [
+                marksman
               ];
 
               nix = with pkgs; [
@@ -65,6 +81,7 @@
                 oil-nvim
                 rainbow-delimiters-nvim
                 toggleterm-nvim
+                touchup-nvim
                 vim-jjdescription
                 which-key-nvim
               ];
@@ -96,6 +113,7 @@
                 general = true;
                 kotlin = true;
                 lua = true;
+                markdown = true;
                 nix = true;
               };
             };

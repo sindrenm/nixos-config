@@ -21,6 +21,7 @@ vim.lsp.config("lua_ls", {
 
 vim.lsp.enable("kotlin_lsp")
 vim.lsp.enable("lua_ls")
+vim.lsp.enable("marksman")
 vim.lsp.enable("nixd")
 
 vim.diagnostic.config({
