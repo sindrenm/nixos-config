@@ -73,6 +73,7 @@
                 fidget-nvim
                 jj-nvim
                 lazydev-nvim
+                mini-diff
                 mini-icons
                 mini-surround
                 nvim-jump

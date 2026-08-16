@@ -1,4 +1,5 @@
 local jump = require("jump")
+local miniDiff = require("mini.diff")
 local whichKey = require("which-key")
 
 local artio = {
@@ -66,13 +67,20 @@ whichKey.add({
   { "<leader>fp", mode = "n", artio.builtins.builtins,    desc = "Find picker" },
 })
 
+local function exportDiffHunks()
+  vim.fn.setqflist(miniDiff.export("qf", { scope = "all" }))
+  vim.cmd("copen")
+end
+
 whichKey.add({
   { "<leader>j",  mode = "n", group = "Jujutsu VCS" },
-  { "<leader>jl", mode = "n", jj.cmd.log,           desc = "Log default revset" },
-  { "<leader>js", mode = "n", jj.cmd.status,        desc = "Status" },
-  { "<leader>ja", mode = "n", jj.annotate.line,     desc = "Annotate current line" },
-  { "<leader>jA", mode = "n", jj.annotate.file,     desc = "Annoate whole file" },
-  { "<leader>jd", mode = "n", jj.diff.diff_current, desc = "Diff current against revision" },
+  { "<leader>jl", mode = "n", jj.cmd.log,              desc = "Log default revset" },
+  { "<leader>js", mode = "n", jj.cmd.status,           desc = "Status" },
+  { "<leader>ja", mode = "n", jj.annotate.line,        desc = "Annotate current line" },
+  { "<leader>jA", mode = "n", jj.annotate.file,        desc = "Annoate whole file" },
+  { "<leader>jd", mode = "n", jj.diff.diff_current,    desc = "Diff current against revision" },
+  { "<leader>jo", mode = "n", miniDiff.toggle_overlay, desc = "Toggle diff overlay" },
+  { "<leader>jq", mode = "n", exportDiffHunks,         desc = "Export diff hunks to quickfix" },
 })
 
 local function sort_text_object(reverse)
