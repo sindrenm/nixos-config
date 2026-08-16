@@ -64,6 +64,7 @@
                 oil-lsp-diagnostics-nvim
                 oil-nvim
                 rainbow-delimiters-nvim
+                toggleterm-nvim
                 vim-jjdescription
                 which-key-nvim
               ];
