@@ -81,6 +81,7 @@
                 oil-lsp-diagnostics-nvim
                 oil-nvim
                 rainbow-delimiters-nvim
+                smart-splits-nvim
                 toggleterm-nvim
                 touchup-nvim
                 vim-jjdescription

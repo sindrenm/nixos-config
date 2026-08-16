@@ -1,4 +1,11 @@
+{ pkgs, ... }:
 {
+  home-manager.users.sindre.xdg.configFile = {
+    "kitty/neighboring_window.py".source = "${pkgs.vimPlugins.smart-splits-nvim}/kitty/neighboring_window.py";
+    "kitty/relative_resize.py".source = "${pkgs.vimPlugins.smart-splits-nvim}/kitty/relative_resize.py";
+    "kitty/split_window.py".source = "${pkgs.vimPlugins.smart-splits-nvim}/kitty/split_window.py";
+  };
+
   home-manager.users.sindre.programs.kitty = {
     enable = true;
 
@@ -34,12 +41,6 @@
       "alt+k" = "neighboring_window up";
       "alt+l" = "neighboring_window right";
 
-      # Hand navigation over to smart-splits.nvim if Neovim's focused
-      "--when-focus-on var:IS_NVIM alt+j" = "";
-      "--when-focus-on var:IS_NVIM alt+k" = "";
-      "--when-focus-on var:IS_NVIM alt+h" = "";
-      "--when-focus-on var:IS_NVIM alt+l" = "";
-
       # Tab management and navigation
       "ctrl+t>n" = "launch --type=tab --cwd=current";
       "ctrl+t>x" = "close_tab";
@@ -60,5 +61,14 @@
       # Reload config file
       "alt+r" = "load_config_file";
     };
+
+    # Home Manager sorts `keybindings`, so these must be appended separately
+    # to override the ordinary Alt-h/j/k/l mappings above while Neovim is active.
+    extraConfig = ''
+      map --when-focus-on var:IS_NVIM alt+h
+      map --when-focus-on var:IS_NVIM alt+j
+      map --when-focus-on var:IS_NVIM alt+k
+      map --when-focus-on var:IS_NVIM alt+l
+    '';
   };
 }
