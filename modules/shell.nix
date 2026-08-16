@@ -35,6 +35,13 @@
       programs.nushell = {
         enable = true;
 
+        shellAliases = {
+          l = "eza";
+          ll = "eza --long --git --icons=auto";
+          lt = "eza --long --git --icons=auto --tree";
+          lt2 = "eza --long --git --icons=auto --tree --level 2";
+        };
+
         settings = {
           buffer_editor = "v";
           edit_mode = "vi";
