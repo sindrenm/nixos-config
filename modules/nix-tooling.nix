@@ -12,7 +12,9 @@
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
+      freetype
       libsecret
+      zlib
     ];
   };
 }
