@@ -116,11 +116,23 @@
             behavior = "own";
           };
 
-          aliases.retrunk = [
-            "rebase"
-            "-d"
-            "trunk()"
-          ];
+          aliases = {
+            gf = [
+              "git"
+              "fetch"
+            ];
+
+            gp = [
+              "git"
+              "push"
+            ];
+
+            retrunk = [
+              "rebase"
+              "-d"
+              "trunk()"
+            ];
+          };
 
           remotes.origin.auto-track-bookmarks = "glob:*";
 
