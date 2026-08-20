@@ -40,6 +40,11 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    openlogi = {
+      url = "github:AprilNEA/OpenLogi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -52,8 +57,9 @@
       mangowm,
       neovim-nightly-overlay,
       nixCats,
-      noctalia,
       nixpkgs,
+      noctalia,
+      openlogi,
       ...
     }:
     let
@@ -77,6 +83,8 @@
             mangowm.nixosModules.mango
 
             home-manager.nixosModules.home-manager
+
+            openlogi.nixosModules.default
 
             {
               home-manager.useGlobalPkgs = true;

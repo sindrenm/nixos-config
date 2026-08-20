@@ -297,6 +297,26 @@
         "type": "github"
       }
     },
+    "openlogi": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787226920,
+        "narHash": "sha256-lxSJIIulZ4Ug+6kx/dUSygw1vP6ncb2vK7IVptnImyI=",
+        "owner": "AprilNEA",
+        "repo": "OpenLogi",
+        "rev": "6f58eab064436420d2120e2825b413389d1cb949",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AprilNEA",
+        "repo": "OpenLogi",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
@@ -307,7 +327,8 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
-        "noctalia": "noctalia"
+        "noctalia": "noctalia",
+        "openlogi": "openlogi"
       }
     },
     "scenefx": {
