@@ -32,7 +32,7 @@
           };
 
           widget = {
-            clock.format = "{:%H:%M:%S}";
+            clock.format =  "{:%A, %B %d, %H:%M:%S}";
 
             home-assistant.type = "pozzoo/hassio:status";
 
