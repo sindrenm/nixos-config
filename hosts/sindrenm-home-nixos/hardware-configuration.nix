@@ -13,13 +13,19 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/043a6435-764c-4549-a2de-07a35014a5b2";
       fsType = "btrfs";
-      options = [ "subvol=@" ];
+      options = [
+        "subvol=@"
+        "noatime"
+      ];
     };
 
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/043a6435-764c-4549-a2de-07a35014a5b2";
       fsType = "btrfs";
-      options = [ "subvol=@home" ];
+      options = [
+        "subvol=@home"
+        "noatime"
+      ];
     };
 
   fileSystems."/boot" =
