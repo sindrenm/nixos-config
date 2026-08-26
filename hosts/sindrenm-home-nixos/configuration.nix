@@ -1,15 +1,14 @@
-# Edit this configuration file to define what should be installed on your
-# system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
+# Edit this configuration file to define what should be installed on your system. Help is available in the
+# configuration.nix(5) man page, on https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 #
-# This file is intentionally thin — everything else lives under ../../modules,
-# split by concern and shared across hosts. See ../../modules/default.nix for
-# the full module list.
+# This file is intentionally thin — everything else lives under ../../modules, split by concern and shared across hosts.
+# See ../../modules/default.nix for the full module list.
 
 {
   imports = [
-    ./hardware-configuration.nix
     ../../modules
+    ./hardware-configuration.nix
+    ./xhci-wakeup.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
