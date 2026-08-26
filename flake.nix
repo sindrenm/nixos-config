@@ -1,5 +1,5 @@
 {
-  description = "sindrenm-home-nixos system flake";
+  description = "sindrenm NixOS system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -110,6 +110,9 @@
         };
     in
     {
-      nixosConfigurations.sindrenm-home-nixos = mkHost "sindrenm-home-nixos";
+      nixosConfigurations = {
+        sindrenm-home-nixos = mkHost "sindrenm-home-nixos";
+        sindrenm-work-nixos = mkHost "sindrenm-work-nixos";
+      };
     };
 }
