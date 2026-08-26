@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules
+    ./display.nix
     ./hardware-configuration.nix
     ./laptop.nix
     ./nvidia-prime.nix
