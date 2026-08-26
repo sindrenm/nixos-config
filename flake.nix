@@ -73,6 +73,9 @@
         hostname:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+
+          specialArgs = { inherit hostname; };
+
           modules = [
             ./hosts/${hostname}/configuration.nix
 

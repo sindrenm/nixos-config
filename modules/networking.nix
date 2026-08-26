@@ -1,5 +1,7 @@
+{ hostname, ... }:
+
 {
-  networking.hostName = "sindrenm-home-nixos";
+  networking.hostName = hostname;
   networking.networkmanager.enable = true;
 
   services.tailscale.enable = true;
