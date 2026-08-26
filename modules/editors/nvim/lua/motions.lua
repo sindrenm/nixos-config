@@ -1,6 +1,11 @@
 local jump = require("jump")
 local smartSplits = require("smart-splits")
 
+-- smart-splits lazily requiring its logger from a vim.system on_exit callback,
+-- where the logger's module-level vim.fn.mkdir is illegal (E5560). Load it
+-- early here instead to prevent any errors.
+require("smart-splits.log")
+
 jump.setup({
   labels = "fdsajkl;" -- home row
 })
