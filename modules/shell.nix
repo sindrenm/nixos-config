@@ -53,11 +53,10 @@
           MANPAGER = "nvim +Man!";
         };
 
-        # Secrets and other machine-specific env vars that shouldn't be committed to this repo go in `local.nu` under the
-        # nushell config dir, which is never managed or overwritten by home-manager (only guaranteed to exist, see the
-        # activation script below).
         extraConfig = ''
           source-env ${nushellLocalEnv}
+
+          ${lib.fileContents ./shell/jj-last.nu}
         '';
       };
 
