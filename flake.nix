@@ -84,6 +84,7 @@
                 claude-desktop.overlays.default
                 neovim-nightly-overlay.overlays.default
 
+                (import ./overlays/android-studio-canary.nix)
                 (import ./overlays/figx.nix)
                 (import ./overlays/kotlin-lsp.nix)
               ];
