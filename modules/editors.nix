@@ -65,6 +65,11 @@
               nix = with pkgs; [
                 nixd
               ];
+
+              swift = with pkgs; [
+                sourcekit-lsp
+                swift-format
+              ];
             };
 
             startupPlugins = {
@@ -101,6 +106,8 @@
               ];
 
               nix = mkTreesitterPlugin [ "nix" ];
+
+              swift = mkTreesitterPlugin [ "swift" ];
             };
           };
 
@@ -131,6 +138,7 @@
                 lua = true;
                 markdown = true;
                 nix = true;
+                swift = true;
               };
             };
         };

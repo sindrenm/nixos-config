@@ -23,6 +23,7 @@ vim.lsp.enable("kotlin_lsp")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("marksman")
 vim.lsp.enable("nixd")
+vim.lsp.enable("sourcekit")
 
 vim.diagnostic.config({
   severity_sort = true,
