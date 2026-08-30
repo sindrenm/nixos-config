@@ -37,6 +37,9 @@
                 hash = "sha256-T9x6zLsPmpZn8yTwzN4+TXgWb2RuZP2OIX8UNV8W0sU=";
               };
             };
+
+            mkTreesitterPlugin =
+              grammars: [ (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: map (g: p.${g}) grammars)) ];
           in
           {
             lspsAndRuntimeDeps = {
@@ -87,6 +90,17 @@
                 vim-jjdescription
                 which-key-nvim
               ];
+
+              kotlin = mkTreesitterPlugin [ "kotlin" ];
+
+              lua = mkTreesitterPlugin [ "lua" ];
+
+              markdown = mkTreesitterPlugin [
+                "markdown"
+                "markdown_inline"
+              ];
+
+              nix = mkTreesitterPlugin [ "nix" ];
             };
           };
 
