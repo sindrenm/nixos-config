@@ -143,7 +143,6 @@
 
             "SUPER,S,toggle_scratchpad"
 
-            "SUPER+CTRL,R,setkeymode,resize"
             "SUPER,N,setkeymode,layout"
             "NONE,Print,setkeymode,screenshot"
           ]
@@ -153,18 +152,6 @@
           ]) (lib.range 1 9);
 
           keymode = {
-            resize = {
-              bind = [
-                "NONE,P,switch_proportion_preset"
-                "NONE,H,resizewin,-20,+0"
-                "NONE,J,resizewin,+0,+20"
-                "NONE,K,resizewin,+0,-20"
-                "NONE,L,resizewin,+20,+0"
-                "NONE,Escape,setkeymode,default"
-                "NONE,Return,setkeymode,default"
-              ];
-            };
-
             layout = {
               bind = [
                 "NONE,N,switch_layout"
