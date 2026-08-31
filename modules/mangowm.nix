@@ -120,7 +120,7 @@
             "SUPER,Escape,spawn,loginctl lock-session"
             "SUPER+SHIFT,Escape,spawn,systemctl suspend"
             "CTRL+ALT,Delete,spawn,wleave --no-version-info"
-            "SUPER,R,reload_config"
+            "SUPER+SHIFT,R,reload_config"
             "SUPER,O,toggleoverview"
 
             "SUPER,H,focusdir,left"
