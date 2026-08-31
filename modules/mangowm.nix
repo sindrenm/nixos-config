@@ -144,7 +144,10 @@
             "SUPER,S,toggle_scratchpad"
 
             "SUPER,N,setkeymode,layout"
-            "NONE,Print,setkeymode,screenshot"
+
+            "NONE,Print,spawn,noctalia msg screenshot-region"
+            "CTRL,Print,spawn,~/.config/mango/scripts/screenshot-window.sh"
+            "ALT,Print,spawn,noctalia msg screenshot-fullscreen monitor"
           ]
           ++ lib.concatMap (i: [
             "SUPER,${toString i},view,${toString i},0"
@@ -160,16 +163,6 @@
                 "NONE,M,setlayout,monocle"
                 "NONE,G,setlayout,grid"
                 "NONE,C,centerwin"
-                "NONE,Escape,setkeymode,default"
-                "NONE,Return,setkeymode,default"
-              ];
-            };
-
-            screenshot = {
-              bind = [
-                "NONE,A,spawn,noctalia msg screenshot-region"
-                "NONE,O,spawn,noctalia msg screenshot-fullscreen monitor"
-                "NONE,W,spawn,~/.config/mango/scripts/screenshot-window.sh"
                 "NONE,Escape,setkeymode,default"
                 "NONE,Return,setkeymode,default"
               ];
