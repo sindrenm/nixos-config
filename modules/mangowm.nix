@@ -138,8 +138,10 @@
             "SUPER,Tab,focusstack,next"
             "SUPER+SHIFT,Tab,focusstack,prev"
 
+            "SUPER,M,minimized"
+            "SUPER+SHIFT,M,restore_minimized,0"
+
             "SUPER,S,toggle_scratchpad"
-            "SUPER+SHIFT,S,minimized"
 
             "SUPER+CTRL,R,setkeymode,resize"
             "SUPER,N,setkeymode,layout"
