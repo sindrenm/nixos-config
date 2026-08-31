@@ -21,12 +21,12 @@
       home.packages = with pkgs; [
         brightnessctl
         grim
-        jq
+        slurp
       ];
 
-      xdg.configFile."mango/scripts/screenshot-window.sh" = {
+      xdg.configFile."mango/scripts/screenshot-window.nu" = {
         executable = true;
-        source = ./mangowm/scripts/screenshot-window.sh;
+        source = ./mangowm/scripts/screenshot-window.nu;
       };
 
       wayland.windowManager.mango = {
@@ -146,7 +146,7 @@
             "SUPER,N,setkeymode,layout"
 
             "NONE,Print,spawn,noctalia msg screenshot-region"
-            "CTRL,Print,spawn,~/.config/mango/scripts/screenshot-window.sh"
+            "CTRL,Print,spawn,~/.config/mango/scripts/screenshot-window.nu"
             "ALT,Print,spawn,noctalia msg screenshot-fullscreen monitor"
           ]
           ++ lib.concatMap (i: [
