@@ -14,3 +14,5 @@ surround.setup({
     suffix_next = "",
   },
 })
+
+vim.o.virtualedit = "all"
