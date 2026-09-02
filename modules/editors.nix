@@ -38,8 +38,9 @@
               };
             };
 
-            mkTreesitterPlugin =
-              grammars: [ (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: map (g: p.${g}) grammars)) ];
+            mkTreesitterPlugin = grammars: [
+              (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: map (g: p.${g}) grammars))
+            ];
           in
           {
             lspsAndRuntimeDeps = {
