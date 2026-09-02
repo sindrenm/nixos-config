@@ -49,6 +49,12 @@
                 ripgrep
               ];
 
+              bash = with pkgs; [
+                bash-language-server
+                shellcheck
+                shfmt
+              ];
+
               kotlin = with pkgs; [
                 kotlin-lsp
                 ktfmt
@@ -92,6 +98,8 @@
                 which-key-nvim
               ];
 
+              bash = mkTreesitterPlugin [ "bash" ];
+
               kotlin = mkTreesitterPlugin [ "kotlin" ];
 
               lua = mkTreesitterPlugin [ "lua" ];
@@ -128,6 +136,7 @@
 
               categories = {
                 general = true;
+                bash = true;
                 kotlin = true;
                 lua = true;
                 markdown = true;
