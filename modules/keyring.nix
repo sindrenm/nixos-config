@@ -5,7 +5,7 @@
 
   # GDM's actual authentication happens via the “gdm-password” PAM service
   # specifically, not just “gdm”, both are needed for the keyring
-  # to auto-unlock using your login password under a GDM + Hyprland combo.
+  # to auto-unlock using your login password under GDM.
   security.pam.services.gdm.enableGnomeKeyring = true;
   security.pam.services.gdm-password.enableGnomeKeyring = true;
 
