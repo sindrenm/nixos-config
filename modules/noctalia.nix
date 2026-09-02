@@ -98,6 +98,7 @@
 
           shell.screenshot = {
             directory = "${config.home.homeDirectory}/pictures/screenshots";
+            filename_pattern = "screenshot_%Y-%m-%d_%H:%M:%S";
             confirm_region = true;
             remember_last_region = true;
           };
