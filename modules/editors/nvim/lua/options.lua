@@ -10,3 +10,10 @@ vim.o.tabstop = 2
 vim.o.termguicolors = true
 vim.o.undofile = true
 vim.o.winborder = "rounded"
+
+vim.filetype.add({
+  extension = {
+    props = "xml",
+    targets = "xml",
+  },
+})

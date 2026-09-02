@@ -55,6 +55,10 @@
                 shfmt
               ];
 
+              dotnet = with pkgs; [
+                roslyn-ls
+              ];
+
               kotlin = with pkgs; [
                 kotlin-lsp
                 ktfmt
@@ -101,6 +105,11 @@
 
               bash = mkTreesitterPlugin [ "bash" ];
 
+              dotnet = mkTreesitterPlugin [
+                "c_sharp"
+                "xml"
+              ];
+
               kotlin = mkTreesitterPlugin [ "kotlin" ];
 
               lua = mkTreesitterPlugin [ "lua" ];
@@ -138,6 +147,7 @@
               categories = {
                 general = true;
                 bash = true;
+                dotnet = true;
                 kotlin = true;
                 lua = true;
                 markdown = true;
