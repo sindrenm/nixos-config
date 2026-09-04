@@ -8,6 +8,7 @@
     home.packages = with pkgs; [
       difftastic
       gcc
+      jq
       nixfmt
       stow
       tree-sitter
