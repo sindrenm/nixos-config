@@ -134,6 +134,8 @@
             ];
           };
 
+          revsets.bookmark-advance-to = "@-";
+
           remotes.origin.auto-track-bookmarks = "glob:*";
 
           git."private-commits" = "description(glob:'private! *')";
