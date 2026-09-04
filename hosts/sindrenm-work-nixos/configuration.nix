@@ -7,6 +7,7 @@
     ./hardware-configuration.nix
     ./laptop.nix
     ./nvidia-prime.nix
+    ./office-printers.nix
   ];
 
   # Limine keeps the boot order.
