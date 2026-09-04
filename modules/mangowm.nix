@@ -6,6 +6,7 @@
   home-manager.users.sindre =
     {
       lib,
+      options,
       pkgs,
       config,
       mangowm,
@@ -36,6 +37,15 @@
         # chain, which is what brings up graphical-session.target and starts systemd user services (e.g. noctalia) that
         # are WantedBy it.
         autostart_sh = ":";
+
+        # Everything in the systemd user manager lives in logind's "manager" session, not the graphical one, so
+        # GetSessionByPID finds nothing and noctalia never arms its logind session lock monitor. This causes
+        # `loginctl lock-session` do silently do nothing. Noctalia falls back to XDG_SESSION_ID, which
+        # isn't in mango's default export list.
+        #
+        # Upstream fix pending in noctalia that resolves the session via logind's per-user Display session:
+        # https://github.com/noctalia-dev/noctalia/pull/3907.
+        systemd.variables = options.wayland.windowManager.mango.systemd.variables.default ++ [ "XDG_SESSION_ID" ];
 
         settings = {
           cursor_theme = "catppuccin-${cursorFlavor}-blue-cursors";
