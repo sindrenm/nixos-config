@@ -19,6 +19,14 @@ vim.lsp.config("lua_ls", {
   },
 })
 
+vim.lsp.config("nixd", {
+  settings = {
+    nixd = {
+      formatting = { command = { "nixfmt" } },
+    },
+  },
+})
+
 vim.lsp.enable("bashls")
 vim.lsp.enable("kotlin_lsp")
 vim.lsp.enable("lua_ls")

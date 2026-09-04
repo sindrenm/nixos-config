@@ -71,6 +71,7 @@
 
               nix = with pkgs; [
                 nixd
+                nixfmt
               ];
             };
 
