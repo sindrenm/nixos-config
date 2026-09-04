@@ -53,10 +53,6 @@
           scroller_ignore_proportion_single = 0;
           scroller_proportion_preset = "0.333,0.5,0.667,1.0";
 
-          # Sticky, GNOME/Niri-style overview. With ov_tab_mode = 1 (the default), releasing SUPER exits overview
-          # immediately, which makes it an Alt-Tab rather than a place you can look around in.
-          ov_tab_mode = 0;
-
           borderpx = 2;
           border_radius = 4;
           focused_opacity = 1.0;
