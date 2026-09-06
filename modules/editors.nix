@@ -97,6 +97,7 @@
                 oil-nvim
                 rainbow-delimiters-nvim
                 smart-splits-nvim
+                tiny-cmdline-nvim
                 toggleterm-nvim
                 touchup-nvim
                 vim-jjdescription

@@ -1,5 +1,6 @@
 local catppuccin = require("catppuccin")
 local icons = require("mini.icons")
+local tinyCmdline = require("tiny-cmdline")
 local ui2 = require("vim._core.ui2")
 
 catppuccin.setup({
@@ -12,6 +13,8 @@ catppuccin.setup({
 vim.cmd.colorscheme("catppuccin")
 
 icons.setup()
+
+tinyCmdline.setup()
 
 -- ui2 reads the message timeout and the cmdline max height from 'messagesopt'.
 vim.o.messagesopt = vim.o.messagesopt .. ",maxheight:50,timeout:5000"
