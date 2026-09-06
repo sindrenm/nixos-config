@@ -1,5 +1,8 @@
+local autopairs = require("nvim-autopairs")
 local surround = require("mini.surround")
 local treesj = require("treesj")
+
+autopairs.setup()
 
 surround.setup({
   mappings = {

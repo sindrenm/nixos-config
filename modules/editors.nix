@@ -91,6 +91,7 @@
                 mini-diff
                 mini-icons
                 mini-surround
+                nvim-autopairs
                 nvim-jump
                 nvim-lspconfig
                 oil-lsp-diagnostics-nvim
