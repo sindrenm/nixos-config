@@ -1,4 +1,5 @@
 local surround = require("mini.surround")
+local treesj = require("treesj")
 
 surround.setup({
   mappings = {
@@ -14,5 +15,7 @@ surround.setup({
     suffix_next = "",
   },
 })
+
+treesj.setup({ use_default_keymaps = false })
 
 vim.o.virtualedit = "all"

@@ -1,5 +1,6 @@
 local jump = require("jump")
 local miniDiff = require("mini.diff")
+local treesj = require("treesj")
 local whichKey = require("which-key")
 
 local artio = {
@@ -81,6 +82,13 @@ whichKey.add({
   { "<leader>jd", mode = "n", jj.diff.diff_current,    desc = "Diff current against revision" },
   { "<leader>jo", mode = "n", miniDiff.toggle_overlay, desc = "Toggle diff overlay" },
   { "<leader>jq", mode = "n", exportDiffHunks,         desc = "Export diff hunks to quickfix" },
+})
+
+whichKey.add({
+  { "<leader>t",  mode = "n", group = "Tree split/join" },
+  { "<leader>tt", mode = "n", treesj.toggle, desc = "Toggle split/join (autodetect)" },
+  { "<leader>ts", mode = "n", treesj.split,  desc = "Split code block" },
+  { "<leader>tj", mode = "n", treesj.join,   desc = "Join code block" },
 })
 
 local function sort_text_object(reverse)

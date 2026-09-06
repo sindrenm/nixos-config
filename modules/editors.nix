@@ -100,6 +100,7 @@
                 tiny-cmdline-nvim
                 toggleterm-nvim
                 touchup-nvim
+                treesj
                 vim-jjdescription
                 which-key-nvim
               ];
