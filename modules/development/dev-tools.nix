@@ -9,6 +9,7 @@
       difftastic
       gcc
       jq
+      ngrok
       nixfmt
       stow
       tree-sitter
