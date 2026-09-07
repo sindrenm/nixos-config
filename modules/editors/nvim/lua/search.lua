@@ -25,6 +25,9 @@ end
 vim.o.grepprg = "rg --vimgrep --smart-case"
 vim.o.grepformat = "%f:%l:%c:%m"
 
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
 -- :grep populates the quickfix list but does not open it.
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
   group = vim.api.nvim_create_augroup("grep-quickfix-auto-open", { clear = true }),
