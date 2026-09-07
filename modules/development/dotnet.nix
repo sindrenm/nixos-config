@@ -12,14 +12,6 @@
           wrapProgram $out/bin/dotnet --prefix LD_LIBRARY_PATH : ${pkgs.libsecret}/lib
         '';
       };
-
-      dotnetEnvVariables = {
-        DOTNET_ROOT = "${dotnet}/share/dotnet";
-        DOTNET_CLI_TELEMETRY_OPTOUT = "1";
-
-        # Lets `dotnet restore --interactive` authenticate against the private Azure Artifacts feed.
-        NUGET_PLUGIN_PATHS = "${pkgs.azure-artifacts-credprovider}/lib/azure-artifacts-credprovider/CredentialProvider.Microsoft.dll";
-      };
     in
     {
       home.packages = with pkgs; [
@@ -28,8 +20,12 @@
         dotnet
       ];
 
-      home.sessionVariables = dotnetEnvVariables;
-      programs.nushell.environmentVariables = dotnetEnvVariables;
-      systemd.user.sessionVariables = dotnetEnvVariables;
+      sessionVariables = {
+        DOTNET_ROOT = "${dotnet}/share/dotnet";
+        DOTNET_CLI_TELEMETRY_OPTOUT = "1";
+
+        # Lets `dotnet restore --interactive` authenticate against the private Azure Artifacts feed.
+        NUGET_PLUGIN_PATHS = "${pkgs.azure-artifacts-credprovider}/lib/azure-artifacts-credprovider/CredentialProvider.Microsoft.dll";
+      };
     };
 }
