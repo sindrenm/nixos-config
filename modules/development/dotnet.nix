@@ -6,7 +6,7 @@
       # `dotnet <dll>`. Otherwise it'll default back to plain-text token storage for the Azure Artifacts feed.
       dotnet = pkgs.symlinkJoin {
         name = "dotnet-sdk-with-libsecret";
-        paths = [ pkgs.dotnetCorePackages.sdk_10_0_3xx ];
+        paths = [ pkgs.dotnetCorePackages.sdk_10_0_4xx ];
         nativeBuildInputs = [ pkgs.makeWrapper ];
         postBuild = ''
           wrapProgram $out/bin/dotnet --prefix LD_LIBRARY_PATH : ${pkgs.libsecret}/lib
