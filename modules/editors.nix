@@ -71,6 +71,7 @@
 
               markdown = with pkgs; [
                 marksman
+                prettier
               ];
 
               nix = with pkgs; [
@@ -85,6 +86,7 @@
                 blink-cmp
                 blink-cmp-conventional-commits
                 catppuccin-nvim
+                conform-nvim
                 fidget-nvim
                 jj-nvim
                 lazydev-nvim

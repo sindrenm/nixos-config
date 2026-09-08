@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 require("completion")
 require("editing")
 require("file-managers")
+require("formatting")
 require("keymaps")
 require("lsp")
 require("markdown")

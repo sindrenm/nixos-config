@@ -1,3 +1,4 @@
+local conform = require("conform")
 local jump = require("jump")
 local miniDiff = require("mini.diff")
 local treesj = require("treesj")
@@ -16,6 +17,10 @@ local jj = {
 
 whichKey.setup({ preset = "modern" });
 
+local function formatBuffer()
+  conform.format({ lsp_format = "fallback" })
+end
+
 whichKey.add({
   { "<leader>l",  mode = { "n", "x", "o" }, group = "Language Server" },
   { "<leader>ld", mode = "n",               vim.lsp.buf.definition,     desc = "Go to definition" },
@@ -23,7 +28,7 @@ whichKey.add({
   { "<leader>lr", mode = "n",               vim.lsp.buf.references,     desc = "List references" },
   { "<leader>ln", mode = "n",               vim.lsp.buf.rename,         desc = "Rename symbol" },
   { "<leader>la", mode = { "n", "x", "o" }, vim.lsp.buf.code_action,    desc = "Code action" },
-  { "<leader>lf", mode = "n",               vim.lsp.buf.format,         desc = "Format buffer" },
+  { "<leader>lf", mode = "n",               formatBuffer,               desc = "Format buffer" },
 })
 
 local diagnosticOverview = function()
