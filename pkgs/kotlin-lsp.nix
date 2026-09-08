@@ -15,13 +15,17 @@
 
 stdenv.mkDerivation rec {
   pname = "kotlin-lsp";
-  version = "262.9593.0";
+  version = "263.4421.0";
 
   # Not in nixpkgs yet: https://discourse.nixos.org/t/package-request-kotlin-lsp/74476
-  # Official standalone releases: https://github.com/Kotlin/kotlin-lsp/releases
+  #
+  # Also, the official GH releases have a tendency to lag behind: https://github.com/Kotlin/kotlin-lsp/issues/271
+  #
+  # These EAP builds hard-expire after some time, leaving us in a state where the LSP is unusable. To avoid this, we'll
+  # need to periodically bump this version manually.
   src = fetchurl {
     url = "https://download-cdn.jetbrains.com/language-server/kotlin-server/${version}/kotlin-server-${version}.tar.gz";
-    hash = "sha256-LZnY4Zj75KqPRIHjd5lyTOlIA7TqEqYLQWBA4/zXzF4=";
+    hash = "sha256-0dq073s5qI93zPaNXloWXJ88Xg+bG7mSPmJaVL08Zz8=";
   };
 
   nativeBuildInputs = [
