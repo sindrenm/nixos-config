@@ -91,9 +91,9 @@ whichKey.add({
 
 whichKey.add({
   { "<leader>t",  mode = "n", group = "Tree split/join" },
-  { "<leader>tt", mode = "n", treesj.toggle, desc = "Toggle split/join (autodetect)" },
-  { "<leader>ts", mode = "n", treesj.split,  desc = "Split code block" },
-  { "<leader>tj", mode = "n", treesj.join,   desc = "Join code block" },
+  { "<leader>tt", mode = "n", treesj.toggle,            desc = "Toggle split/join (autodetect)" },
+  { "<leader>ts", mode = "n", treesj.split,             desc = "Split code block" },
+  { "<leader>tj", mode = "n", treesj.join,              desc = "Join code block" },
 })
 
 local function sort_text_object(reverse)
