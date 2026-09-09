@@ -14,7 +14,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # "light" (default) or "dark"
-  home-manager.users.sindre.theming.polarity = "light";
+  home-manager.users.sindre.theming.polarity = "dark";
 
   system.stateVersion = "26.05";
 }
