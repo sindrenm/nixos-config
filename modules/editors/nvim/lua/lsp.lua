@@ -1,5 +1,6 @@
 local fidget = require("fidget")
 local lazydev = require("lazydev")
+local tinyInlineDiagnostic = require("tiny-inline-diagnostic")
 
 fidget.setup({
   notification = {
@@ -8,6 +9,15 @@ fidget.setup({
 })
 
 lazydev.setup()
+
+tinyInlineDiagnostic.setup({
+  options = {
+    multilines = {
+      enabled = true,
+      tabstop = 2,
+    },
+  },
+})
 
 vim.lsp.config("lua_ls", {
   settings = {
@@ -33,12 +43,3 @@ vim.lsp.enable("lua_ls")
 vim.lsp.enable("marksman")
 vim.lsp.enable("nixd")
 vim.lsp.enable("roslyn_ls")
-
-vim.diagnostic.config({
-  severity_sort = true,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  virtual_lines = true,
-  virtual_text = { prefix = "!", },
-})

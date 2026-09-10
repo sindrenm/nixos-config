@@ -102,6 +102,7 @@
                 smart-splits-nvim
                 tabout-nvim
                 tiny-cmdline-nvim
+                tiny-inline-diagnostic-nvim
                 toggleterm-nvim
                 touchup-nvim
                 treesj
