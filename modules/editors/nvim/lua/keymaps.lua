@@ -3,6 +3,7 @@ local jump = require("jump")
 local miniDiff = require("mini.diff")
 local treesj = require("treesj")
 local whichKey = require("which-key")
+local quicker = require("quicker")
 
 local artio = {
   core = require("artio"),
@@ -119,4 +120,8 @@ end
 whichKey.add({
   { "gs", mode = "n", expr = true, sort_ascending,  desc = "Sort text object" },
   { "gS", mode = "n", expr = true, sort_descending, desc = "Sort text object (desc)" },
+})
+
+whichKey.add({
+  { "<leader>q", mode = "n", quicker.toggle, desc = "Toggle quickfix list" },
 })

@@ -98,6 +98,7 @@
                 nvim-lspconfig
                 oil-lsp-diagnostics-nvim
                 oil-nvim
+                quicker-nvim
                 rainbow-delimiters-nvim
                 smart-splits-nvim
                 tabout-nvim
