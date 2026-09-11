@@ -17,6 +17,10 @@
           git_branch.disabled = true;
           git_commit.disabled = true;
 
+          # kotlin-cli isn't the classic kotlinc launcher starship expects: it
+          # rejects starship's hardcoded `-version` flag. It is also too slow.
+          kotlin.disabled = true;
+
           custom.jj = {
             command = "prompt";
             format = "$output";
