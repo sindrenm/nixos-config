@@ -60,10 +60,21 @@ local findFiles = function()
   })
 end
 
+-- `rg` exits with a status code 1 when there are no matches, which `artio`
+-- treats as an error. Map this to a success with an empty results list.
+--
+-- See https://github.com/comfysage/artio.nvim/issues/27.
+local grepProject = function()
+  ---@diagnostic disable-next-line: missing-fields
+  return artio.builtins.grep({
+    grepprg = [[sh -c 'rg --vimgrep --smart-case "$@"; test $? -le 1' sh]],
+  })
+end
+
 whichKey.add({
   { "<leader>f",  mode = "n", group = "Find" },
   { "<leader>ff", mode = "n", findFiles,                  desc = "Find file" },
-  { "<leader>fg", mode = "n", artio.builtins.grep,        desc = "Grep project" },
+  { "<leader>fg", mode = "n", grepProject,                desc = "Grep project" },
   { "<leader>f/", mode = "n", artio.builtins.buffergrep,  desc = "Grep current buffer" },
   { "<leader>fb", mode = "n", artio.builtins.buffers,     desc = "Find buffer" },
   { "<leader>fo", mode = "n", artio.builtins.oldfiles,    desc = "Find recent file" },
