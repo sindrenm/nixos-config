@@ -15,7 +15,7 @@
 
 stdenv.mkDerivation rec {
   pname = "kotlin-lsp";
-  version = "263.4421.0";
+  version = "263.4702.0";
 
   # Not in nixpkgs yet: https://discourse.nixos.org/t/package-request-kotlin-lsp/74476
   #
@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
   # need to periodically bump this version manually.
   src = fetchurl {
     url = "https://download-cdn.jetbrains.com/language-server/kotlin-server/${version}/kotlin-server-${version}.tar.gz";
-    hash = "sha256-0dq073s5qI93zPaNXloWXJ88Xg+bG7mSPmJaVL08Zz8=";
+    hash = "sha256-HhHS5f77+eohWtjda+lfIiKJfNCG6Mt6ZhpSCEpZBAU=";
   };
 
   nativeBuildInputs = [
