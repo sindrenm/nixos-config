@@ -2,25 +2,15 @@
   home-manager.users.sindre =
     {
       nixCats,
-      pkgs,
       ...
     }:
     {
       imports = [ nixCats.homeModule ];
 
-      # The old Neovim whose config is not tracked in this repo. Will eventually be
-      # replaced by the `nixCats` build below.
-      programs.neovim = {
-        enable = true;
-        defaultEditor = true;
-        package = pkgs.neovim; # use nightly overlay
-        sideloadInitLua = true; # manage my own Lua config
-      };
-
       nixCats = {
         enable = true;
 
-        packageNames = [ "v" ];
+        packageNames = [ "nvim" ];
 
         luaPath = ./editors/nvim;
 
@@ -132,18 +122,17 @@
           };
 
         packageDefinitions.replace = {
-          v =
+          nvim =
             { ... }:
             {
               settings = {
-                # Leave ~/.config/nvim/ alone for now.
-                configDirName = "nixcats.nvim";
+                aliases = [ "v" ];
 
                 # Normally the config is the read-only `luaPath` copy in the store,
                 # so editing it requires a rebuild. Setting NIXCATS_DEV to a config
                 # directory reads that live instead — no rebuild, no `git add`:
                 #
-                #   NIXCATS_DEV=/home/sindre/nixos-config/modules/editors/nvim v
+                #   NIXCATS_DEV=/home/sindre/nixos-config/modules/editors/nvim nvim
                 #
                 wrapRc = "NIXCATS_DEV";
                 unwrappedCfgPath = nixCats.utils.n2l.mkLuaInline ''os.getenv("NIXCATS_DEV")'';
