@@ -8,11 +8,14 @@
 # Feeding every visible window's geometry to `slurp -r` turns it into a window picker: hovering highlights a window,
 # clicking captures it. Beats silently grabbing whatever happened to be focused when the keybind fired.
 
-let dir = ([$nu.home-dir pictures screenshots] | path join)
+let dir = [$nu.home-dir pictures screenshots] | path join
 mkdir $dir
 
 # Matches Noctalia's `shell.screenshot.filename_pattern`, so window shots sort alongside its region/monitor ones.
-let filepath = ([$dir $"screenshot_(date now | format date '%Y-%m-%d_%H:%M:%S').png"] | path join)
+let filepath = (
+  [$dir $"screenshot_(date now | format date '%Y-%m-%d_%H:%M:%S').png"]
+  | path join
+)
 
 let boxes = (
   mmsg get all-clients
@@ -27,7 +30,13 @@ if ($boxes | is-empty) {
 }
 
 # slurp exits non-zero when the selection is cancelled (Escape / right click), which is not an error worth reporting.
-let geometry = (try { $boxes | to text | slurp -r } catch { exit 0 })
+let geometry = (
+  try {
+    $boxes | to text | slurp -r
+  } catch {
+    exit 0
+  }
+)
 
 grim -g $geometry $filepath
 open --raw $filepath | wl-copy
