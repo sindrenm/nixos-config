@@ -68,6 +68,11 @@
                 nixd
                 nixfmt
               ];
+
+              nushell = with pkgs; [
+                nufmt
+                nushell
+              ];
             };
 
             startupPlugins = {
@@ -118,6 +123,8 @@
               ];
 
               nix = mkTreesitterPlugin [ "nix" ];
+
+              nushell = mkTreesitterPlugin [ "nu" ];
             };
           };
 
@@ -149,6 +156,7 @@
                 lua = true;
                 markdown = true;
                 nix = true;
+                nushell = true;
               };
             };
         };
