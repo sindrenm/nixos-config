@@ -73,6 +73,11 @@
                 nufmt
                 nushell
               ];
+
+              python = with pkgs; [
+                basedpyright
+                ruff
+              ];
             };
 
             startupPlugins = {
@@ -125,6 +130,8 @@
               nix = mkTreesitterPlugin [ "nix" ];
 
               nushell = mkTreesitterPlugin [ "nu" ];
+
+              python = mkTreesitterPlugin [ "python" ];
             };
           };
 
@@ -157,6 +164,7 @@
                 markdown = true;
                 nix = true;
                 nushell = true;
+                python = true;
               };
             };
         };

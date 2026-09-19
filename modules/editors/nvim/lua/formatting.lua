@@ -4,6 +4,7 @@ conform.setup({
   formatters_by_ft = {
     markdown = { "prettier" },
     nu = { "nufmt" },
+    python = { "ruff_organize_imports", "ruff_format" },
   },
 })
 

@@ -37,6 +37,15 @@ vim.lsp.config("nixd", {
   },
 })
 
+vim.lsp.config("ruff", {
+  init_options = {
+    settings = {
+      hover = { enabled = false },
+    },
+  },
+})
+
+vim.lsp.enable("basedpyright")
 vim.lsp.enable("bashls")
 vim.lsp.enable("kotlin_lsp")
 vim.lsp.enable("lua_ls")
@@ -44,3 +53,4 @@ vim.lsp.enable("marksman")
 vim.lsp.enable("nixd")
 vim.lsp.enable("nushell")
 vim.lsp.enable("roslyn_ls")
+vim.lsp.enable("ruff")
