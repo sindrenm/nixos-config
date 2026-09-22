@@ -78,6 +78,10 @@
                 basedpyright
                 ruff
               ];
+
+              rust = with pkgs; [
+                rust-analyzer
+              ];
             };
 
             startupPlugins = {
@@ -132,6 +136,8 @@
               nushell = mkTreesitterPlugin [ "nu" ];
 
               python = mkTreesitterPlugin [ "python" ];
+
+              rust = mkTreesitterPlugin [ "rust" ];
             };
           };
 
@@ -165,6 +171,7 @@
                 nix = true;
                 nushell = true;
                 python = true;
+                rust = true;
               };
             };
         };
