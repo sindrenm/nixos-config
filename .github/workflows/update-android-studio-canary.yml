@@ -1,0 +1,49 @@
+name: Update Android Studio Canary
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-android-studio-canary
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Check for a new canary release
+    runs-on: ubuntu-latest
+
+    env:
+      # Pushes and pull requests authenticated with the default GITHUB_TOKEN never trigger further
+      # workflow runs, so ci.yml would not validate these pull requests. Add an
+      # ANDROID_STUDIO_UPDATE_TOKEN secret (a PAT or GitHub App token with `contents: write` and
+      # `pull-requests: write`) to get CI on them.
+      TOKEN: ${{ secrets.ANDROID_STUDIO_UPDATE_TOKEN || github.token }}
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ env.TOKEN }}
+
+      - name: Setup Nu
+        uses: hustcer/setup-nu@v3.27
+
+      - name: Update overlay
+        id: update
+        run: ./scripts/update-android-studio-canary.nu
+
+      - name: Open pull request
+        if: steps.update.outputs.updated == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ env.TOKEN }}
+          branch: automation/update-android-studio-canary
+          delete-branch: true
+          commit-message: "chore(android-studio): update to ${{ steps.update.outputs.version }}"
+          title: "chore(android-studio): update to ${{ steps.update.outputs.version }}"
+          body: Updates `overlays/android-studio-canary.nix` to **${{ steps.update.outputs.name }}** (`${{ steps.update.outputs.version }}`).
