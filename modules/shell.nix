@@ -61,6 +61,8 @@
           source-env ${nushellLocalEnv}
 
           ${lib.fileContents ./shell/jj-last.nu}
+
+          ${lib.fileContents ./shell/jj-data.nu}
         '';
       };
 
