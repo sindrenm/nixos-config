@@ -82,10 +82,18 @@
               rust = with pkgs; [
                 rust-analyzer
               ];
+
+              typescript = with pkgs; [
+                prettier
+                tailwindcss-language-server
+                vscode-langservers-extracted
+                vtsls
+              ];
             };
 
             startupPlugins = {
               general = with pkgs.vimPlugins; [
+                SchemaStore-nvim
                 artio-nvim
                 blink-cmp
                 blink-cmp-conventional-commits
@@ -138,6 +146,18 @@
               python = mkTreesitterPlugin [ "python" ];
 
               rust = mkTreesitterPlugin [ "rust" ];
+
+              typescript = mkTreesitterPlugin [
+                "css"
+                "html"
+                "javascript"
+                "jsdoc"
+                "json"
+                "regex"
+                "tsx"
+                "typescript"
+                "yaml"
+              ];
             };
           };
 
@@ -172,6 +192,7 @@
                 nushell = true;
                 python = true;
                 rust = true;
+                typescript = true;
               };
             };
         };
