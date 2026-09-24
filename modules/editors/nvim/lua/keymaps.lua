@@ -22,6 +22,13 @@ local function formatBuffer()
   conform.format({ lsp_format = "fallback" })
 end
 
+local function toggleInlayHints()
+  local filter = { bufnr = 0 }
+  local is_enabled = vim.lsp.inlay_hint.is_enabled(filter)
+
+  vim.lsp.inlay_hint.enable(not is_enabled, filter)
+end
+
 whichKey.add({
   { "<leader>l",  mode = { "n", "x", "o" }, group = "Language Server" },
   { "<leader>ld", mode = "n",               vim.lsp.buf.definition,     desc = "Go to definition" },
@@ -30,6 +37,7 @@ whichKey.add({
   { "<leader>ln", mode = "n",               vim.lsp.buf.rename,         desc = "Rename symbol" },
   { "<leader>la", mode = { "n", "x", "o" }, vim.lsp.buf.code_action,    desc = "Code action" },
   { "<leader>lf", mode = "n",               formatBuffer,               desc = "Format buffer" },
+  { "<leader>lh", mode = "n",               toggleInlayHints,           desc = "Toggle inlay hints" },
 })
 
 local diagnosticOverview = function()
