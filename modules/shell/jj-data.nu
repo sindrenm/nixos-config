@@ -27,3 +27,21 @@ def "jj bookmarks" [
   | from json -o
   | uniq #
 }
+
+# `jj tag list`, as a Nushell table of records.
+def "jj tags" [
+  ...names: string # only tags whose name matches (glob/string pattern)
+  --all-remotes (-a) # include synced/untracked remote tags too
+  --remote: string # only tags on this remote
+  --revision (-r): string # only tags whose local target is in this revset
+] {
+  mut flags = []
+
+  if $all_remotes { $flags = ($flags | append "--all-remotes") }
+  if $remote != null { $flags = ($flags | append ["--remote" $remote]) }
+  if $revision != null { $flags = ($flags | append ["--revision" $revision]) }
+
+  jj tag list --template $JJ_REF_TEMPLATE ...$flags ...$names
+  | from json -o
+  | uniq
+}
