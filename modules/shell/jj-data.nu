@@ -45,3 +45,9 @@ def "jj tags" [
   | from json -o
   | uniq
 }
+
+# `jj workspace list`, as a Nushell table of records.
+def "jj workspaces" [] {
+  jj workspace list --template 'json(self) ++ "\n"'
+  | from json -o
+}
