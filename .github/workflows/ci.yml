@@ -24,7 +24,7 @@ jobs:
             experimental-features = nix-command flakes
 
       - name: Check flake
-        run: nix flake check --no-build --all-systems
+        run: nix flake check --all-systems
 
       - name: Evaluate host configurations
         run: |
