@@ -31,7 +31,7 @@ jobs:
           token: ${{ env.TOKEN }}
 
       - name: Setup Nu
-        uses: hustcer/setup-nu@v3.27
+        uses: hustcer/setup-nu@v3.28
 
       - name: Update overlay
         id: update
