@@ -39,7 +39,7 @@ jobs:
 
       - name: Open pull request
         if: steps.update.outputs.updated == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ env.TOKEN }}
           branch: automation/update-android-studio-canary
