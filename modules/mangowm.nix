@@ -6,7 +6,6 @@
   home-manager.users.sindre =
     {
       lib,
-      options,
       pkgs,
       config,
       mangowm,
@@ -33,21 +32,18 @@
       wayland.windowManager.mango = {
         enable = true;
 
-        # Setting this (even to a no-op) makes the mango module emit the exec-once/dbus-activation/mango-session.target
-        # chain, which is what brings up graphical-session.target and starts systemd user services (e.g. noctalia) that
-        # are WantedBy it.
-        autostart_sh = ":";
-
-        # Everything in the systemd user manager lives in logind's "manager" session, not the graphical one, so
-        # GetSessionByPID finds nothing and noctalia never arms its logind session lock monitor. This causes
-        # `loginctl lock-session` do silently do nothing. Noctalia falls back to XDG_SESSION_ID, which
-        # isn't in mango's default export list.
-        #
-        # Upstream fix pending in noctalia that resolves the session via logind's per-user Display session:
-        # https://github.com/noctalia-dev/noctalia/pull/3907.
-        systemd.variables = options.wayland.windowManager.mango.systemd.variables.default ++ [ "XDG_SESSION_ID" ];
-
         settings = {
+          # Mango imports its environment into systemd and starts mango-session.target (and thereby
+          # graphical-session.target) on its own, but XDG_SESSION_ID isn't in its export list.
+          #
+          # Everything in the systemd user manager lives in logind's "manager" session, not the graphical one, so
+          # GetSessionByPID finds nothing and noctalia never arms its logind session lock monitor. This causes
+          # `loginctl lock-session` to silently do nothing. Noctalia falls back to XDG_SESSION_ID.
+          #
+          # Upstream fix pending in noctalia that resolves the session via logind's per-user Display session:
+          # https://github.com/noctalia-dev/noctalia/pull/3907.
+          exec_once = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd XDG_SESSION_ID";
+
           cursor_theme = "catppuccin-${cursorFlavor}-blue-cursors";
           cursor_size = 24;
 
@@ -63,17 +59,17 @@
           scroller_ignore_proportion_single = 0;
           scroller_proportion_preset = "0.333,0.5,0.667,1.0";
 
-          borderpx = 2;
+          border_px = 2;
           border_radius = 4;
           focused_opacity = 1.0;
           unfocused_opacity = 0.9;
-          focuscolor = hex "sky" "ff";
-          bordercolor = hex "crust" "ff";
+          focus_color = hex "sky" "ff";
+          border_color = hex "crust" "ff";
 
           shadows = 1;
           shadow_only_floating = 0;
           shadows_size = 4;
-          shadowscolor = hex "crust" "ee";
+          shadows_color = hex "crust" "ee";
 
           blur = 1;
           blur_params = {
@@ -89,9 +85,9 @@
           zoom_initial_ratio = 0.87;
           zoom_end_ratio = 1.0;
 
-          windowrule = [
-            "isterm:1,appid:^kitty$"
-            "isfloating:1,isoverlay:1,isglobal:1,isnoanimation:1,noblur:1,title:^Picture-in-Picture$"
+          window_rule = [
+            "is_term:1,app_id:^kitty$"
+            "is_floating:1,is_overlay:1,is_global:1,no_animation:1,no_blur:1,title:^Picture-in-Picture$"
           ];
 
           mousebind = [
@@ -103,6 +99,12 @@
             "none,down,3,toggleoverview"
           ];
 
+          # keysym binding because XF86AudioPause resolves to the same key as XF86AudioPlay
+          bindls = [
+            "NONE,XF86AudioPlay,spawn,playerctl play-pause"
+            "NONE,XF86AudioPause,spawn,playerctl play-pause"
+          ];
+
           bindl = [
             "NONE,XF86AudioRaiseVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
             "NONE,XF86AudioLowerVolume,spawn,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -110,8 +112,6 @@
             "NONE,XF86AudioMicMute,spawn,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
             "NONE,XF86MonBrightnessUp,spawn,brightnessctl s 10%+"
             "NONE,XF86MonBrightnessDown,spawn,brightnessctl s 10%-"
-            "NONE,XF86AudioPlay,spawn,playerctl play-pause"
-            "NONE,XF86AudioPause,spawn,playerctl play-pause"
             "NONE,XF86AudioForward,spawn,playerctl position 10+"
             "NONE,XF86AudioRewind,spawn,playerctl position 10-"
             "NONE,XF86AudioNext,spawn,playerctl next"
@@ -160,7 +160,7 @@
             "SUPER+SHIFT,${toString i},tag,${toString i},0"
           ]) (lib.range 1 9);
 
-          keymode = {
+          key_mode = {
             layout = {
               bind = [
                 "NONE,N,switch_layout"
