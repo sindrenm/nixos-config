@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
   # These EAP builds hard-expire after some time, leaving us in a state where the LSP is unusable. To avoid this, we'll
   # need to periodically bump this version manually.
   src = fetchurl {
-    url = "https://download-cdn.jetbrains.com/language-server/kotlin-server/${version}/kotlin-server-${version}.tar.gz";
+    url = "https://download.jetbrains.com/language-server/kotlin-server/${version}/kotlin-server-${version}.tar.gz";
     hash = "sha256-q4ykRV3C/F/hok2yvMxGwQQlTSxGUVXEJR7mXfjz98w=";
   };
 
