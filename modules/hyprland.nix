@@ -1,0 +1,28 @@
+{
+  programs.hyprland.enable = true;
+
+  home-manager.users.sindre =
+    {
+      ...
+    }:
+    {
+      wayland.windowManager.hyprland = {
+        enable = true;
+        configType = "lua";
+
+        # NixOS supplies the compositor and matching portal.
+        package = null;
+        portalPackage = null;
+
+        # Import this before graphical-session.target starts Noctalia, for logind locking.
+        systemd.variables = [
+          "DISPLAY"
+          "HYPRLAND_INSTANCE_SIGNATURE"
+          "WAYLAND_DISPLAY"
+          "XDG_CURRENT_DESKTOP"
+          "XDG_SESSION_ID"
+          "XDG_SESSION_TYPE"
+        ];
+      };
+    };
+}
