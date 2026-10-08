@@ -29,6 +29,7 @@
           "XDG_SESSION_TYPE"
         ];
 
+        extraLuaFiles.input = ./hyprland/input.lua;
         extraLuaFiles.monitors = ./hyprland/monitors.lua;
       };
     };
