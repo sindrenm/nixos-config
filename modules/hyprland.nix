@@ -28,6 +28,8 @@
           "XDG_SESSION_ID"
           "XDG_SESSION_TYPE"
         ];
+
+        extraLuaFiles.monitors = ./hyprland/monitors.lua;
       };
     };
 }
