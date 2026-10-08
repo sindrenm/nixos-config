@@ -32,6 +32,7 @@
         extraLuaFiles.input = ./hyprland/input.lua;
         extraLuaFiles.monitors = ./hyprland/monitors.lua;
         extraLuaFiles.theming = ./hyprland/theming.lua;
+        extraLuaFiles.windows = ./hyprland/windows.lua;
       };
     };
 }
