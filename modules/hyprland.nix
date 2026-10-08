@@ -29,6 +29,7 @@
           "XDG_SESSION_TYPE"
         ];
 
+        extraLuaFiles.bindings = ./hyprland/bindings.lua;
         extraLuaFiles.input = ./hyprland/input.lua;
         extraLuaFiles.monitors = ./hyprland/monitors.lua;
         extraLuaFiles.noctalia = ./hyprland/noctalia.lua;

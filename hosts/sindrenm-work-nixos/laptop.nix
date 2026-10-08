@@ -23,4 +23,7 @@
   home-manager.users.sindre.wayland.windowManager.mango.settings.bindl = [
     "SUPER+ALT,F6,spawn,noctalia msg power-cycle"
   ];
+
+  home-manager.users.sindre.wayland.windowManager.hyprland.extraLuaFiles.laptop =
+    ./hyprland-laptop.lua;
 }
