@@ -9,7 +9,14 @@
     {
       home.packages = with pkgs; [
         brightnessctl
+        grim
+        slurp
       ];
+
+      xdg.configFile."hypr/scripts/screenshot-window.nu" = {
+        executable = true;
+        source = ./hyprland/screenshot-window.nu;
+      };
 
       wayland.windowManager.hyprland = {
         enable = true;

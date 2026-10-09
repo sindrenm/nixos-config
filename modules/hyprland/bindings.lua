@@ -42,3 +42,7 @@ for key, command in pairs({
 }) do
   hl.bind(key, exec(command), { locked = true })
 end
+
+hl.bind("Print", exec("noctalia msg screenshot-region"))
+hl.bind("CTRL + Print", exec("~/.config/hypr/scripts/screenshot-window.nu"))
+hl.bind("ALT + Print", exec("noctalia msg screenshot-fullscreen monitor"))
