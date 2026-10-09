@@ -46,3 +46,41 @@ end
 hl.bind("Print", exec("noctalia msg screenshot-region"))
 hl.bind("CTRL + Print", exec("~/.config/hypr/scripts/screenshot-window.nu"))
 hl.bind("ALT + Print", exec("noctalia msg screenshot-fullscreen monitor"))
+
+-- Per-workspace tiling layout, mirroring mango's SUPER+N layout mode. Any key below leaves the mode again.
+local layouts = { "dwindle", "master", "scrolling", "monocle" }
+
+local function active_workspace()
+  return hl.get_active_special_workspace() or hl.get_active_workspace()
+end
+
+local function set_layout(layout)
+  local workspace = active_workspace()
+
+  if not workspace then return end
+
+  hl.workspace_rule({ workspace = workspace.special and workspace.name or tostring(workspace.id), layout = layout })
+end
+
+local function cycle_layout()
+  local workspace = active_workspace()
+  local current = workspace and workspace.tiled_layout
+
+  for i, layout in ipairs(layouts) do
+    if layout == current then return set_layout(layouts[i % #layouts + 1]) end
+  end
+
+  set_layout(layouts[1])
+end
+
+hl.bind("SUPER + N", hl.dsp.submap("layout"))
+
+hl.define_submap("layout", "reset", function()
+  hl.bind("N", cycle_layout)
+  hl.bind("D", function() set_layout("dwindle") end)
+  hl.bind("M", function() set_layout("master") end)
+  hl.bind("S", function() set_layout("scrolling") end)
+  hl.bind("O", function() set_layout("monocle") end)
+  hl.bind("Escape", hl.dsp.submap("reset"))
+  hl.bind("Return", hl.dsp.submap("reset"))
+end)
