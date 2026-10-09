@@ -55,6 +55,12 @@
             };
           };
 
+          plugins.enabled = [
+            "avivbintangaringga/nix-monitor"
+            "davemhammer/tailscale"
+            "pozzoo/hassio"
+          ];
+
           widget = {
             clock.format = "{:%A, %B %d, %H:%M:%S}";
             home-assistant.type = "pozzoo/hassio:status";
