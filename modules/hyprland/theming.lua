@@ -16,3 +16,9 @@ hl.config({
   },
   misc = { disable_hyprland_logo = true },
 })
+
+-- Animations. Speeds are in tenths of a second.
+hl.animation({ leaf = "global", enabled = true, speed = 3, bezier = "default" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 2.5, bezier = "default", style = "popin 87%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.5, bezier = "default", style = "popin 87%" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "default", style = "fade" })
