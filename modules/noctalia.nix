@@ -8,7 +8,28 @@
       ...
     }:
     {
-      imports = [ noctalia.homeModules.default ];
+      imports = [
+        noctalia.homeModules.default
+        {
+          # TOML arrays can't be merged into, so other modules (e.g. noctalia-mangowm.nix) add widgets to the start
+          # capsule group through this option, ordered with lib.mkOrder.
+          options.noctalia.bar.startGroup = lib.mkOption {
+            type = lib.types.listOf lib.types.str;
+            description = "Widgets in the capsule group at the start of the main bar.";
+          };
+        }
+      ];
+
+      noctalia.bar.startGroup = lib.mkMerge [
+        (lib.mkBefore [
+          "workspaces"
+          "wallpaper"
+        ])
+        [
+          "media"
+          "nix-monitor"
+        ]
+      ];
 
       programs.noctalia = {
         enable = true;
@@ -27,6 +48,8 @@
             # are opt-in and would otherwise fight the catppuccin/home-manager-managed GTK/Qt/dconf config in
             # modules/theming.nix. This only themes Noctalia's own bar/launcher/control-center UI.
             templates = {
+              enable_builtin_templates = false;
+              enable_community_templates = false;
               builtin_ids = [ ];
               community_ids = [ ];
             };
@@ -42,15 +65,8 @@
           bar.main = {
             padding = 16;
 
-            start = lib.mkMerge [
-              (lib.mkBefore [
-                "workspaces"
-                "wallpaper"
-              ])
-              [
-                "media"
-                "nix-monitor"
-              ]
+            start = [
+              "group:start"
             ];
 
             center = [
@@ -58,14 +74,34 @@
             ];
 
             end = [
-              "tray"
-              "clipboard"
-              "notifications"
+              "group:end"
               "tailscale"
               "home-assistant"
               "network"
               "volume"
+              "battery"
               "session"
+            ];
+
+            capsule_group = [
+              {
+                id = "start";
+                members = config.noctalia.bar.startGroup;
+                fill = "surface";
+                padding = 0.0;
+                widget_spacing = 10;
+              }
+              {
+                id = "end";
+                members = [
+                  "tray"
+                  "clipboard"
+                  "notifications"
+                ];
+                fill = "surface";
+                border = "outline";
+                padding = 12.0;
+              }
             ];
           };
 
@@ -145,7 +181,12 @@
           };
 
           nightlight.enabled = true;
-          location.address = "Oslo, Norway";
+          location = {
+            auto_locate = true;
+            address = "Oslo, Norway";
+          };
+
+          shell.telemetry_enabled = true;
 
           calendar = {
             enabled = true;

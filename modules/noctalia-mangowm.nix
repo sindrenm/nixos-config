@@ -2,6 +2,9 @@
 
 {
   home-manager.users.sindre = lib.mkIf config.programs.mango.enable {
+    # Insert after the shared workspace/wallpaper prefix and before the remaining widgets.
+    noctalia.bar.startGroup = lib.mkOrder 750 [ "mango-keymode" ];
+
     programs.noctalia.settings = {
       widget = {
         mango-keymode = {
@@ -18,11 +21,7 @@
         };
       };
 
-      bar.main = {
-        # Insert after the shared workspace/wallpaper prefix and before the remaining widgets.
-        start = lib.mkOrder 750 [ "mango-keymode" ];
-        center = lib.mkAfter [ "mango-layouts" ];
-      };
+      bar.main.center = lib.mkAfter [ "mango-layouts" ];
 
       plugin_settings."ezequiel/mango_layouts" = {
         panel_placement = "attached";
