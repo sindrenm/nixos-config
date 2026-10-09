@@ -20,11 +20,10 @@
         }
       ];
 
+      # Explicit orders leave room for other modules to slot widgets in between.
       noctalia.bar.startGroup = lib.mkMerge [
-        (lib.mkBefore [
-          "workspaces"
-          "wallpaper"
-        ])
+        (lib.mkOrder 500 [ "workspaces" ])
+        (lib.mkOrder 700 [ "wallpaper" ])
         [
           "media"
           "nix-monitor"
