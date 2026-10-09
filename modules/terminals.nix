@@ -25,6 +25,10 @@
       tab_powerline_style = "slanted";
 
       scrollback_lines = 10000;
+
+      # The compositor sizes the window. Otherwise kitty restores a saved
+      # maximized state, which Hyprland treats as fullscreen.
+      remember_window_size = false;
     };
 
     keybindings = {
