@@ -132,20 +132,17 @@
 
           idle.pre_action_fade_seconds = 3;
 
-          idle.behaviors = [
-            {
-              name = "lock";
-              kind = "lock";
+          idle.behavior = {
+            lock = {
+              action = "lock";
               timeout = 300; # 5 minutes
-              locked_timeout = 0;
-            }
-            {
-              name = "screen-off";
-              kind = "screen_off";
+            };
+
+            screen-off = {
+              action = "screen_off";
               timeout = 600; # 10 minutes
-              locked_timeout = 60; # once locked, blank a minute later
-            }
-          ];
+            };
+          };
 
           nightlight.enabled = true;
           location.address = "Oslo, Norway";
