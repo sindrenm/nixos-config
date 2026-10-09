@@ -2,6 +2,7 @@
   home-manager.users.sindre =
     {
       config,
+      lib,
       noctalia,
       pkgs,
       ...
@@ -32,42 +33,28 @@
           };
 
           widget = {
-            clock.format =  "{:%A, %B %d, %H:%M:%S}";
-
+            clock.format = "{:%A, %B %d, %H:%M:%S}";
             home-assistant.type = "pozzoo/hassio:status";
-
-            mango-keymode = {
-              type = "gambled23/mangowm-keymode:mangowm-keymode";
-
-              hide_on_default = true;
-              notify_change = false;
-            };
-
-            mango-layouts = {
-              type = "ezequiel/mango_layouts:btn";
-
-              show_text = true;
-            };
-
             nix-monitor.type = "avivbintangaringga/nix-monitor:nix-monitor";
-
             tailscale.type = "davemhammer/tailscale:status";
           };
 
           bar.main = {
             padding = 16;
 
-            start = [
-              "workspaces"
-              "wallpaper"
-              "mango-keymode"
-              "media"
-              "nix-monitor"
+            start = lib.mkMerge [
+              (lib.mkBefore [
+                "workspaces"
+                "wallpaper"
+              ])
+              [
+                "media"
+                "nix-monitor"
+              ]
             ];
 
             center = [
               "clock"
-              "mango-layouts"
             ];
 
             end = [
@@ -175,20 +162,6 @@
           plugin_settings."pozzoo/hassio" = {
             entity_manager_placement = "attached";
             entity_manager_open_near_click = true;
-          };
-
-          plugin_settings."ezequiel/mango_layouts" = {
-            panel_placement = "attached";
-            panel_open_near_click = true;
-
-            # Match mango's circle_layout
-            show_dwindle = false;
-            show_right_tile = false;
-            show_vertical_deck = false;
-            show_vertical_fair = false;
-            show_vertical_grid = false;
-            show_vertical_scroller = false;
-            show_vertical_tile = false;
           };
 
           wallpaper = {
