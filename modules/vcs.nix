@@ -131,6 +131,7 @@
               "rebase"
               "-d"
               "trunk()"
+              "--skip-emptied"
             ];
           };
 
