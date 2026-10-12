@@ -1,35 +1,31 @@
 {
   lib,
-  stdenv,
-  fetchurl,
-  autoPatchelfHook,
+  rustPlatform,
+  src,
 }:
 
-stdenv.mkDerivation rec {
+# My own fork with Linux keyring support until https://github.com/tonykolomeytsev/figx/pull/20 lands.
+let
+  cargoVersion = (lib.importTOML "${src}/Cargo.toml").workspace.package.version;
+  date = builtins.substring 0 8 src.lastModifiedDate;
+in
+rustPlatform.buildRustPackage {
   pname = "figx";
-  version = "0.8.9";
+  version = "${cargoVersion}-unstable-${builtins.substring 0 4 date}-${builtins.substring 4 2 date}-${builtins.substring 6 2 date}";
 
-  src = fetchurl {
-    url = "https://github.com/tonykolomeytsev/figx/releases/download/v${version}/figx-linux-gnu-x86_64.tar.gz";
-    hash = "sha256-xeo1FAL48HDSgbwXs+P2Be0NUMbQog5fApymBNgb4Wo=";
-  };
+  inherit src;
 
-  nativeBuildInputs = [ autoPatchelfHook ];
-  buildInputs = [ stdenv.cc.cc.lib ];
+  # Bump after `nix flake update figx-src` if the fork's Cargo.lock changed.
+  cargoHash = "sha256-Hn0PGutTxP5qHYg9SdQhkwHV2GJTDsfzTuHCLt4jLjY=";
 
-  sourceRoot = ".";
-
-  installPhase = ''
-    runHook preInstall
-    install -Dm755 figx $out/bin/figx
-    runHook postInstall
-  '';
+  cargoBuildFlags = [ "--package" "figx" ];
+  doCheck = false;
 
   meta = {
     description = "Pragmatic CLI tool for importing design assets from Figma into your codebase";
-    homepage = "https://github.com/tonykolomeytsev/figx";
+    homepage = "https://github.com/sindrenm/figx";
     license = lib.licenses.gpl3Only;
-    platforms = [ "x86_64-linux" ];
+    platforms = lib.platforms.linux;
     mainProgram = "figx";
   };
 }

@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    figx-src = {
+      url = "github:sindrenm/figx";
+      flake = false;
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -58,6 +63,7 @@
       catppuccin,
       catppuccin-palette,
       claude-desktop,
+      figx-src,
       home-manager,
       mangowm,
       neovim-nightly-overlay,
@@ -85,7 +91,7 @@
                 neovim-nightly-overlay.overlays.default
 
                 (import ./overlays/android-studio-canary.nix)
-                (import ./overlays/figx.nix)
+                (import ./overlays/figx.nix { src = figx-src; })
                 (import ./overlays/kotlin-lsp.nix)
               ];
             }

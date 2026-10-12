@@ -57,6 +57,22 @@
         "type": "github"
       }
     },
+    "figx-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791817195,
+        "narHash": "sha256-UeVUe8la30dQFsH1cs4H1Zk4/en5OZmtcM8EZJ5KaXo=",
+        "owner": "sindrenm",
+        "repo": "figx",
+        "rev": "441834ad7897d51f757450ff3d90eb1a7f28e865",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sindrenm",
+        "repo": "figx",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -323,6 +339,7 @@
         "catppuccin": "catppuccin",
         "catppuccin-palette": "catppuccin-palette",
         "claude-desktop": "claude-desktop",
+        "figx-src": "figx-src",
         "home-manager": "home-manager",
         "mangowm": "mangowm",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
