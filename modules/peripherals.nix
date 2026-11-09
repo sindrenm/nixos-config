@@ -17,5 +17,8 @@
   programs.openlogi = {
     enable = true;
     launchAtLogin = true;
+
+    # The flake's package with a build fix; see overlays/openlogi.nix.
+    package = pkgs.openlogi;
   };
 }

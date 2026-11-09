@@ -93,6 +93,7 @@
                 (import ./overlays/android-studio-canary.nix)
                 (import ./overlays/figx.nix { src = figx-src; })
                 (import ./overlays/kotlin-lsp.nix)
+                (import ./overlays/openlogi.nix { flake = openlogi; })
               ];
             }
 
