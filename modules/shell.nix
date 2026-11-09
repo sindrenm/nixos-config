@@ -52,6 +52,8 @@
           show_banner = false;
         };
 
+        loadSessionVariables = true;
+
         environmentVariables = {
           EDITOR = "v";
           MANPAGER = "nvim +Man!";

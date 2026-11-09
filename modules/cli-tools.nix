@@ -1,5 +1,5 @@
 {
-  home-manager.users.sindre = { pkgs, config, ... }: {
+  home-manager.users.sindre = { pkgs, ... }: {
     programs.bat.enable = true;
 
     programs.fd = {
@@ -23,9 +23,6 @@
         "--glob=!.jj/"
       ];
     };
-
-    # The ripgrep module only exports this via home.sessionVariables, which nushell doesn't read.
-    sessionVariables.RIPGREP_CONFIG_PATH = "${config.xdg.configHome}/ripgrep/ripgreprc";
 
     home.packages = with pkgs; [
       speedtest-cli
