@@ -19,12 +19,12 @@
           let
             touchup-nvim = pkgs.vimUtils.buildVimPlugin {
               pname = "touchup.nvim";
-              version = "unstable-2026-09-30";
+              version = "unstable-2026-10-21";
               src = pkgs.fetchFromGitHub {
                 owner = "noisesfromspace";
                 repo = "touchup.nvim";
-                rev = "9464d6ca5775e8603b37b36500e5d9a4ab6d57cb";
-                hash = "sha256-aXscTSn6OZrs7/WJPp1ImTT1XWC0yk/yE18Ps3xK5I8=";
+                rev = "d32c23516e29b72075bfe0fb98d4aaf20790ac2c";
+                hash = "sha256-ZCtDN56UKzcBldbMF64zRvf/EMnP395qTW6VrRswkso=";
               };
             };
 
