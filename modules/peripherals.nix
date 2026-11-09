@@ -10,6 +10,10 @@
   # needed for the browser to flash new firmware onto the keyboard over WebUSB.
   hardware.keyboard.qmk.enable = true;
 
+  # nixpkgs ships its own `programs.openlogi` module, which clashes with the one
+  # from the official OpenLogi flake. Prefer the official flake.
+  disabledModules = [ "programs/openlogi.nix" ];
+
   programs.openlogi = {
     enable = true;
     launchAtLogin = true;
