@@ -29,6 +29,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hunk = {
+      url = "github:modem-dev/hunk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     mangowm = {
       url = "github:mangowm/mango";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -65,6 +70,7 @@
       claude-desktop,
       figx-src,
       home-manager,
+      hunk,
       mangowm,
       neovim-nightly-overlay,
       nixCats,
@@ -110,6 +116,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit catppuccin catppuccin-palette;
+                inherit hunk;
                 inherit mangowm;
                 inherit nixCats;
                 inherit noctalia;

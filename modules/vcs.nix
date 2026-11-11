@@ -1,6 +1,11 @@
 {
   home-manager.users.sindre =
-    { config, pkgs, ... }:
+    {
+      config,
+      hunk,
+      pkgs,
+      ...
+    }:
     let
       signingKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
 
@@ -14,8 +19,11 @@
 
       useCarapaceCompletions = config.programs.carapace.enable;
       jjPkg = if useCarapaceCompletions then jjWithoutNushellComp else pkgs.jujutsu;
+      catppuccinFlavor = if config.theming.polarity == "light" then "latte" else "mocha";
     in
     {
+      imports = [ hunk.homeManagerModules.default ];
+
       programs.git = {
         enable = true;
 
@@ -110,6 +118,24 @@
             pager = ":builtin";
           };
 
+          # Use Hunk as the diff viewer, not as a pager for unsupported commands.
+          # See https://github.com/modem-dev/hunk/issues/1277
+          "--scope" = [
+            {
+              "--when" = {
+                commands = [
+                  "diff"
+                  "interdiff"
+                  "show"
+                ];
+              };
+              ui = {
+                pager = "hunk pager";
+                diff-formatter = ":git";
+              };
+            }
+          ];
+
           signing = {
             key = signingKey;
             backend = "ssh";
@@ -140,6 +166,15 @@
           remotes.origin.auto-track-bookmarks = "glob:*";
 
           git."private-commits" = "description(glob:'private! *')";
+        };
+      };
+
+      programs.hunk = {
+        enable = true;
+        enableClaudeIntegration = true;
+
+        settings = {
+          theme = "catppuccin-${catppuccinFlavor}";
         };
       };
     };
