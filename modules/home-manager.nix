@@ -1,4 +1,6 @@
 {
+  home-manager.backupFileExtension = "backup";
+
   home-manager.users.sindre = {
     # Let Home Manager manage itself.
     programs.home-manager.enable = true;
