@@ -13,6 +13,7 @@ catppuccin.setup({
 vim.cmd.colorscheme("catppuccin")
 
 icons.setup()
+icons.mock_nvim_web_devicons()
 
 tinyCmdline.setup()
 
