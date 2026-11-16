@@ -13,8 +13,8 @@ jump.setup({
 -- setup() is too strictly annotated; fields are merged
 ---@diagnostic disable-next-line: missing-fields
 smartSplits.setup({
-  at_edge = "stop",
-  multiplexer_integration = "kitty",
+  move = { at_edge = "stop" },
+  mux = { backend = "smart-splits-backend-kitty" },
 })
 
 vim.keymap.set("n", "<A-h>", smartSplits.move_cursor_left, { desc = "Move to left split or Kitty pane" })

@@ -28,6 +28,18 @@
               };
             };
 
+            smart-splits-backend-kitty = pkgs.vimUtils.buildVimPlugin {
+              pname = "smart-splits-backend-kitty";
+              version = "unstable-2026-11-11";
+              src = pkgs.fetchFromGitHub {
+                owner = "smart-splits-nvim";
+                repo = "backend-kitty";
+                rev = "3d2a42abbe7545b406757f8a303813e49dc0449a";
+                hash = "sha256-4il8+Rjy1pDCFYuke/LG11YnmarhVgiw/Ves81JWXvQ=";
+              };
+              dependencies = [ pkgs.vimPlugins.smart-splits-nvim ];
+            };
+
             mkTreesitterPlugin = grammars: [
               (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: map (g: p.${g}) grammars))
             ];
@@ -104,6 +116,7 @@
                 oil-nvim
                 quicker-nvim
                 rainbow-delimiters-nvim
+                smart-splits-backend-kitty
                 smart-splits-nvim
                 tabout-nvim
                 tiny-cmdline-nvim
