@@ -29,6 +29,11 @@ vim.lsp.config("lua_ls", {
   },
 })
 
+-- lspconfig also lists `markdown.mdx`, which isn't a filetype Neovim knows
+vim.lsp.config("marksman", {
+  filetypes = { "markdown" },
+})
+
 vim.lsp.config("nixd", {
   settings = {
     nixd = {
