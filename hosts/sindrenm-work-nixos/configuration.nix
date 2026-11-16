@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules
+    ../common/nvidia-gpu.nix
     ./display.nix
     ./hardware-configuration.nix
     ./laptop.nix

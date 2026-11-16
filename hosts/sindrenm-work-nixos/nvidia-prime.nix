@@ -1,6 +1,6 @@
 # Hybrid graphics. The Intel Raptor Lake UHD iGPU (PCI 00:02.0) drives the built-in panel; the RTX 4070 Max-Q
 # (PCI 01:00.0) stays powered down until something is launched through `nvidia-offload`. Settings shared with the
-# desktop's discrete-only setup live in ../../modules/nvidia-gpu.nix.
+# desktop's discrete-only setup live in ../common/nvidia-gpu.nix.
 {
   # Bind the iGPU in the initrd so i915 always claims it. Both i915 and xe match its PCI ID, and if udev happens to load
   # xe first, xe refuses the device, i915 never loads, and only simpledrm is left on the boot VGA device. wlroots-based

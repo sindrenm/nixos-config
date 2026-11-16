@@ -7,6 +7,7 @@
 {
   imports = [
     ../../modules
+    ../common/nvidia-gpu.nix
     ./hardware-configuration.nix
     ./xhci-wakeup.nix
   ];
