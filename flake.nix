@@ -97,8 +97,6 @@
                 neovim-nightly-overlay.overlays.default
 
                 (import ./overlays/android-studio-canary.nix)
-                (import ./overlays/ashell.nix)
-                (import ./overlays/codex.nix)
                 (import ./overlays/figx.nix { src = figx-src; })
                 (import ./overlays/kotlin-lsp.nix)
                 (import ./overlays/openlogi.nix { flake = openlogi; })
