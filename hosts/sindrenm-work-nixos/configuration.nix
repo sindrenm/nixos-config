@@ -5,11 +5,11 @@
     ../../modules
     ../common/laptop-display.nix
     ../common/nvidia-gpu.nix
+    ../common/office-printers.nix
     ./display.nix
     ./hardware-configuration.nix
     ./laptop.nix
     ./nvidia-prime.nix
-    ./office-printers.nix
   ];
 
   # Limine keeps the boot order.
