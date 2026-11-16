@@ -46,6 +46,11 @@
 
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -74,6 +79,7 @@
       mangowm,
       neovim-nightly-overlay,
       nixCats,
+      nixos-hardware,
       nixpkgs,
       noctalia,
       openlogi,
@@ -86,7 +92,7 @@
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
-          specialArgs = { inherit hostname; };
+          specialArgs = { inherit hostname nixos-hardware; };
 
           modules = [
             ./hosts/${hostname}/configuration.nix
@@ -126,6 +132,7 @@
     in
     {
       nixosConfigurations = {
+        sindrenm-framework = mkHost "sindrenm-framework";
         sindrenm-home-nixos = mkHost "sindrenm-home-nixos";
         sindrenm-work-nixos = mkHost "sindrenm-work-nixos";
       };
