@@ -121,6 +121,10 @@
             open_near_click_wallpaper = true;
           };
 
+          # Answers polkit prompts (e.g. fprintd-enroll, NetworkManager) in the shell. Without an agent, actions that need
+          # authentication are simply denied as "Not Authorized".
+          shell.polkit_agent = true;
+
           shell.screen_corners.enabled = true;
           shell.time_format = "{:%H:%M}";
 
