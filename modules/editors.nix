@@ -170,8 +170,10 @@
                 wrapRc = "NIXCATS_DEV";
                 unwrappedCfgPath = nixCats.utils.n2l.mkLuaInline ''os.getenv("NIXCATS_DEV")'';
 
-                hosts.python3.enable = false;
                 hosts.node.enable = false;
+                hosts.perl.enable = false;
+                hosts.python3.enable = false;
+                hosts.ruby.enable = false;
               };
 
               categories = {
