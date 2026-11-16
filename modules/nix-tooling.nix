@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   programs.nh = {
     enable = true;
     flake = "/home/sindre/nixos-config";

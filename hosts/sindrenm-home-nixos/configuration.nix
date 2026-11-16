@@ -12,8 +12,6 @@
     ./xhci-wakeup.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # "light" (default) or "dark"
   home-manager.users.sindre.theming.polarity = "light";
 
