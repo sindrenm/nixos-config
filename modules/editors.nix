@@ -2,6 +2,8 @@
   home-manager.users.sindre =
     {
       nixCats,
+      nvim-smart-splits-backend-kitty-src,
+      nvim-touchup-src,
       ...
     }:
     {
@@ -17,26 +19,23 @@
         categoryDefinitions.replace =
           { pkgs, ... }:
           let
+            unstableVersion =
+              src:
+              let
+                date = builtins.substring 0 8 src.lastModifiedDate;
+              in
+              "unstable-${builtins.substring 0 4 date}-${builtins.substring 4 2 date}-${builtins.substring 6 2 date}";
+
             touchup-nvim = pkgs.vimUtils.buildVimPlugin {
               pname = "touchup.nvim";
-              version = "unstable-2026-10-21";
-              src = pkgs.fetchFromGitHub {
-                owner = "noisesfromspace";
-                repo = "touchup.nvim";
-                rev = "d32c23516e29b72075bfe0fb98d4aaf20790ac2c";
-                hash = "sha256-ZCtDN56UKzcBldbMF64zRvf/EMnP395qTW6VrRswkso=";
-              };
+              version = unstableVersion nvim-touchup-src;
+              src = nvim-touchup-src;
             };
 
             smart-splits-backend-kitty = pkgs.vimUtils.buildVimPlugin {
               pname = "smart-splits-backend-kitty";
-              version = "unstable-2026-11-11";
-              src = pkgs.fetchFromGitHub {
-                owner = "smart-splits-nvim";
-                repo = "backend-kitty";
-                rev = "3d2a42abbe7545b406757f8a303813e49dc0449a";
-                hash = "sha256-4il8+Rjy1pDCFYuke/LG11YnmarhVgiw/Ves81JWXvQ=";
-              };
+              version = unstableVersion nvim-smart-splits-backend-kitty-src;
+              src = nvim-smart-splits-backend-kitty-src;
               dependencies = [ pkgs.vimPlugins.smart-splits-nvim ];
             };
 

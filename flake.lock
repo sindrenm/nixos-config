@@ -432,6 +432,38 @@
         "type": "github"
       }
     },
+    "nvim-smart-splits-backend-kitty-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795215959,
+        "narHash": "sha256-Z4G/p8FnJgRN/vNeK61vWNSDq3cN8dRROLwk3xQ5SsU=",
+        "owner": "smart-splits-nvim",
+        "repo": "backend-kitty",
+        "rev": "07b528c5c52054cc995d013abae18ef77d3f6217",
+        "type": "github"
+      },
+      "original": {
+        "owner": "smart-splits-nvim",
+        "repo": "backend-kitty",
+        "type": "github"
+      }
+    },
+    "nvim-touchup-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792609359,
+        "narHash": "sha256-ZCtDN56UKzcBldbMF64zRvf/EMnP395qTW6VrRswkso=",
+        "owner": "noisesfromspace",
+        "repo": "touchup.nvim",
+        "rev": "d32c23516e29b72075bfe0fb98d4aaf20790ac2c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noisesfromspace",
+        "repo": "touchup.nvim",
+        "type": "github"
+      }
+    },
     "openlogi": {
       "inputs": {
         "nixpkgs": [
@@ -469,6 +501,8 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
+        "nvim-smart-splits-backend-kitty-src": "nvim-smart-splits-backend-kitty-src",
+        "nvim-touchup-src": "nvim-touchup-src",
         "openlogi": "openlogi",
         "zen-browser": "zen-browser"
       }

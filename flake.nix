@@ -51,6 +51,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nvim-smart-splits-backend-kitty-src = {
+      url = "github:smart-splits-nvim/backend-kitty";
+      flake = false;
+    };
+
+    nvim-touchup-src = {
+      url = "github:noisesfromspace/touchup.nvim";
+      flake = false;
+    };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -82,6 +92,8 @@
       nixos-hardware,
       nixpkgs,
       noctalia,
+      nvim-smart-splits-backend-kitty-src,
+      nvim-touchup-src,
       openlogi,
       zen-browser,
       ...
@@ -124,6 +136,7 @@
                 inherit mangowm;
                 inherit nixCats;
                 inherit noctalia;
+                inherit nvim-smart-splits-backend-kitty-src nvim-touchup-src;
                 inherit zen-browser;
               };
             }
