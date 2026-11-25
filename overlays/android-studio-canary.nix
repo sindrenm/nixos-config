@@ -6,11 +6,11 @@ final: prev:
 # When updating, fetch the latest entry from https://jb.gg/android-studio-releases-list.json, and
 # update version/url/sha256Hash below.
 let
-  version = "2026.3.1.2"; # "Android Studio Stingray 1 | 2026.3.1 Canary 2"
+  version = "2026.3.1.3"; # "Android Studio Stingray 1 | 2026.3.1 Canary 3"
   sources = {
     x86_64-linux = {
-      url = "https://edgedl.me.gvt1.com/android/studio/ide-zips/${version}/android-studio-stingray1-canary2-linux.tar.gz";
-      sha256Hash = "663308c1d38b38bc8460d4169072f7681e1a1e743f3913b585772a1a408265c1";
+      url = "https://edgedl.me.gvt1.com/android/studio/ide-zips/${version}/android-studio-stingray1-canary3-linux.tar.gz";
+      sha256Hash = "9514ca8caf1c1488263fcb597101459d835529dd1e31c54afbef178fe298b764";
     };
   };
   inherit (prev.androidStudioPackages.canary) pname meta;
